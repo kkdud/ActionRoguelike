@@ -8,14 +8,28 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UPrimitiveComponent;
+class AActor;
+struct FVector;
+struct FHitResult;
 #ifdef ACTIONROGUELIKE_SMagicProjectile_generated_h
 #error "SMagicProjectile.generated.h already included, missing '#pragma once' in SMagicProjectile.h"
 #endif
 #define ACTIONROGUELIKE_SMagicProjectile_generated_h
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SMagicProjectile_h_16_SPARSE_DATA
-#define ActionRoguelike_Source_ActionRoguelike_Public_SMagicProjectile_h_16_RPC_WRAPPERS
-#define ActionRoguelike_Source_ActionRoguelike_Public_SMagicProjectile_h_16_RPC_WRAPPERS_NO_PURE_DECLS
+#define ActionRoguelike_Source_ActionRoguelike_Public_SMagicProjectile_h_16_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execExplode); \
+	DECLARE_FUNCTION(execOnActorHit);
+
+
+#define ActionRoguelike_Source_ActionRoguelike_Public_SMagicProjectile_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execExplode); \
+	DECLARE_FUNCTION(execOnActorHit);
+
+
 #define ActionRoguelike_Source_ActionRoguelike_Public_SMagicProjectile_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASMagicProjectile(); \
