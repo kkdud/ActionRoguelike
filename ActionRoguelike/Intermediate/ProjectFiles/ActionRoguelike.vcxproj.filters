@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ActionRoguelike.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{BBDBC161-8E35-4535-82C3-BB3910470173}</UniqueIdentifier>
+      <UniqueIdentifier>{3704187B-73D6-485A-98BB-17F29FF2EFCC}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ActionRoguelike.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{95F7799D-2EAB-42A8-A9CE-85AD9FCFB258}</UniqueIdentifier>
+      <UniqueIdentifier>{75DAC84D-87D2-4D91-B443-8E1BB8B4F76C}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -23,8 +23,11 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
     <Filter Include="Source\ActionRoguelike">
-      <UniqueIdentifier>{0CAFEB65-5D05-4ECC-B12E-7D69581C3412}</UniqueIdentifier>
+      <UniqueIdentifier>{EE534BB7-02ED-4745-95B9-251D5339FE73}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ActionRoguelike\ActionRoguelike.Build.cs">
       <Filter>Source\ActionRoguelike</Filter>
@@ -42,15 +45,21 @@
       <Filter>Source\ActionRoguelike</Filter>
     </ClInclude>
     <Filter Include="Source\ActionRoguelike\Private">
-      <UniqueIdentifier>{D9FB2BA8-E7BF-4FBB-B457-0887522F73A0}</UniqueIdentifier>
+      <UniqueIdentifier>{5B818742-4ED3-4F4A-B3F0-1E7150722B6C}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\SCharacter.cpp">
       <Filter>Source\ActionRoguelike\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ActionRoguelike\Private\SMagicProjectile.cpp">
+      <Filter>Source\ActionRoguelike\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\ActionRoguelike\Public">
-      <UniqueIdentifier>{448B65CF-9203-430D-B174-B4EF05C76B59}</UniqueIdentifier>
+      <UniqueIdentifier>{16A0AA0C-476A-4DA5-A199-F4E29F090B1B}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\SCharacter.h">
+      <Filter>Source\ActionRoguelike\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ActionRoguelike\Public\SMagicProjectile.h">
       <Filter>Source\ActionRoguelike\Public</Filter>
     </ClInclude>
   </ItemGroup>
