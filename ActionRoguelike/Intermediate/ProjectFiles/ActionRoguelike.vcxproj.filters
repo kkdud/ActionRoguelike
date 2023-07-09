@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ActionRoguelike.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{5D843564-2EE9-4910-992B-9CFB3DD77B87}</UniqueIdentifier>
+      <UniqueIdentifier>{72E5AC3B-6168-4F86-A09A-88CC996B5D47}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ActionRoguelike.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{949641AC-651F-481E-9121-641D0E75A62A}</UniqueIdentifier>
+      <UniqueIdentifier>{8BC75E39-1818-42D9-A702-5679F0E696BD}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\ActionRoguelike">
-      <UniqueIdentifier>{2E8EF91E-B1DE-4810-BFCE-7114AA3DE8BB}</UniqueIdentifier>
+      <UniqueIdentifier>{F328660C-3B70-4F47-91C5-A27B37C072B1}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ActionRoguelike\ActionRoguelike.Build.cs">
       <Filter>Source\ActionRoguelike</Filter>
@@ -45,7 +45,7 @@
       <Filter>Source\ActionRoguelike</Filter>
     </ClInclude>
     <Filter Include="Source\ActionRoguelike\Private">
-      <UniqueIdentifier>{376ACDFD-A151-4B0A-87BE-1DA8659C6AA3}</UniqueIdentifier>
+      <UniqueIdentifier>{F3E19B9D-8D64-4517-9A7E-97A15F1EA0BE}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\SAttributeComponent.cpp">
       <Filter>Source\ActionRoguelike\Private</Filter>
@@ -68,8 +68,11 @@
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\SMagicProjectile.cpp">
       <Filter>Source\ActionRoguelike\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ActionRoguelike\Private\STargetDummy.cpp">
+      <Filter>Source\ActionRoguelike\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\ActionRoguelike\Public">
-      <UniqueIdentifier>{D557F743-3049-434D-994B-3A8E087D0657}</UniqueIdentifier>
+      <UniqueIdentifier>{20A6CA7B-7B40-44F5-9D43-AD9B9A58EC97}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\SAttributeComponent.h">
       <Filter>Source\ActionRoguelike\Public</Filter>
@@ -90,6 +93,9 @@
       <Filter>Source\ActionRoguelike\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\SMagicProjectile.h">
+      <Filter>Source\ActionRoguelike\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ActionRoguelike\Public\STargetDummy.h">
       <Filter>Source\ActionRoguelike\Public</Filter>
     </ClInclude>
   </ItemGroup>
