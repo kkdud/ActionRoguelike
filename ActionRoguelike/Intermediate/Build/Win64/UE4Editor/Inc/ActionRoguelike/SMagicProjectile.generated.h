@@ -10,8 +10,8 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UPrimitiveComponent;
 class AActor;
-struct FVector;
 struct FHitResult;
+struct FVector;
 #ifdef ACTIONROGUELIKE_SMagicProjectile_generated_h
 #error "SMagicProjectile.generated.h already included, missing '#pragma once' in SMagicProjectile.h"
 #endif
@@ -20,12 +20,14 @@ struct FHitResult;
 #define ActionRoguelike_Source_ActionRoguelike_Public_SMagicProjectile_h_16_SPARSE_DATA
 #define ActionRoguelike_Source_ActionRoguelike_Public_SMagicProjectile_h_16_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execOnActorOverlap); \
 	DECLARE_FUNCTION(execExplode); \
 	DECLARE_FUNCTION(execOnActorHit);
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SMagicProjectile_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execOnActorOverlap); \
 	DECLARE_FUNCTION(execExplode); \
 	DECLARE_FUNCTION(execOnActorHit);
 
