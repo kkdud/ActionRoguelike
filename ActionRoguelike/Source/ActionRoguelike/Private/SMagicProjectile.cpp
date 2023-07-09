@@ -46,7 +46,7 @@ void ASMagicProjectile::PostInitializeComponents()
 {
 	Super::PostInitializeComponents();
 
-	SphereComp->OnComponentHit.AddDynamic(this, &ASMagicProjectile::OnActorHit);
+	//SphereComp->OnComponentHit.AddDynamic(this, &ASMagicProjectile::OnActorHit);
 }
 
 // Called every frame

@@ -167,7 +167,7 @@ void EmptyLinkFunctionForGeneratedCodeSExplosiveBarrel() {}
 		{ "ModuleRelativePath", "Public/SExplosiveBarrel.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASExplosiveBarrel_Statics::NewProp_ForceComp = { "ForceComp", nullptr, (EPropertyFlags)0x00200800000a0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASExplosiveBarrel, ForceComp), Z_Construct_UClass_URadialForceComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASExplosiveBarrel_Statics::NewProp_ForceComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASExplosiveBarrel_Statics::NewProp_ForceComp_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASExplosiveBarrel_Statics::NewProp_ForceComp = { "ForceComp", nullptr, (EPropertyFlags)0x00200800000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASExplosiveBarrel, ForceComp), Z_Construct_UClass_URadialForceComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASExplosiveBarrel_Statics::NewProp_ForceComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASExplosiveBarrel_Statics::NewProp_ForceComp_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASExplosiveBarrel_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASExplosiveBarrel_Statics::NewProp_MeshComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASExplosiveBarrel_Statics::NewProp_ForceComp,
@@ -199,7 +199,7 @@ void EmptyLinkFunctionForGeneratedCodeSExplosiveBarrel() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASExplosiveBarrel, 1497657746);
+	IMPLEMENT_CLASS(ASExplosiveBarrel, 31260684);
 	template<> ACTIONROGUELIKE_API UClass* StaticClass<ASExplosiveBarrel>()
 	{
 		return ASExplosiveBarrel::StaticClass();
