@@ -60,6 +60,8 @@ public: \
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__ProjectileClass() { return STRUCT_OFFSET(ASCharacter, ProjectileClass); } \
+	FORCEINLINE static uint32 __PPO__DashProjectileClass() { return STRUCT_OFFSET(ASCharacter, DashProjectileClass); } \
+	FORCEINLINE static uint32 __PPO__BlackholeProjectileClass() { return STRUCT_OFFSET(ASCharacter, BlackholeProjectileClass); } \
 	FORCEINLINE static uint32 __PPO__AttackAnim() { return STRUCT_OFFSET(ASCharacter, AttackAnim); } \
 	FORCEINLINE static uint32 __PPO__SpringArmComp() { return STRUCT_OFFSET(ASCharacter, SpringArmComp); } \
 	FORCEINLINE static uint32 __PPO__CameraComp() { return STRUCT_OFFSET(ASCharacter, CameraComp); } \
