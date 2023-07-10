@@ -8,14 +8,24 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
+class USAttributeComponent;
 #ifdef ACTIONROGUELIKE_SCharacter_generated_h
 #error "SCharacter.generated.h already included, missing '#pragma once' in SCharacter.h"
 #endif
 #define ACTIONROGUELIKE_SCharacter_generated_h
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_SPARSE_DATA
-#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_RPC_WRAPPERS
-#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS
+#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnHealthChanged);
+
+
+#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnHealthChanged);
+
+
 #define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASCharacter(); \

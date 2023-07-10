@@ -37,11 +37,13 @@ static inline void FOnHealthChanged_DelegateWrapper(const FMulticastScriptDelega
 #define ActionRoguelike_Source_ActionRoguelike_Public_SAttributeComponent_h_16_SPARSE_DATA
 #define ActionRoguelike_Source_ActionRoguelike_Public_SAttributeComponent_h_16_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execIsAlive); \
 	DECLARE_FUNCTION(execApplyHealthChange);
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SAttributeComponent_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execIsAlive); \
 	DECLARE_FUNCTION(execApplyHealthChange);
 
 
