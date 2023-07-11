@@ -13,7 +13,10 @@ USAttributeComponent::USAttributeComponent()
 
 	// ...
 
-	Health = 100.0f;
+	HealthMax = 100.0f;
+
+	Health = HealthMax;
+
 }
 
 
@@ -45,6 +48,21 @@ bool USAttributeComponent::ApplyHealthChange(float Delta)
 bool USAttributeComponent::IsAlive() const
 {
 	return Health > 0.0f;
+}
+
+bool USAttributeComponent::IsFullHealth() const
+{
+	return Health == HealthMax;
+}
+
+float USAttributeComponent::GetHealth() const
+{
+	return Health;
+}
+
+float USAttributeComponent::GetHealthMax() const
+{
+	return HealthMax;
 }
 
 // Called every frame

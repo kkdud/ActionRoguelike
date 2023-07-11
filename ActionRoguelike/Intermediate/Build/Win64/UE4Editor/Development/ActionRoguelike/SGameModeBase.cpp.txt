@@ -1,0 +1,44 @@
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Development\ActionRoguelike\Definitions.ActionRoguelike.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Source\ActionRoguelike\Public\SGameModeBase.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\AIModule\Classes\EnvironmentQuery/EnvQueryTypes.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\NavigationSystem\Public\NavFilters/NavigationQueryFilter.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\NavigationSystem\Public\NavAreas/NavArea.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\AI/Navigation/NavAreaBase.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\NavAreaBase.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\NavigationSystem\NavArea.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\NavigationSystem\NavigationQueryFilter.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\AIModule\Classes\EnvironmentQuery/Items/EnvQueryItemType.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\EnvQueryItemType.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\AIModule\Classes\EnvironmentQuery/EnvQueryContext.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\EnvQueryContext.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\AIModule\Classes\BehaviorTree/BehaviorTreeTypes.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\BehaviorTreeTypes.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\EnvQueryTypes.generated.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SGameModeBase.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\AIModule\Classes\EnvironmentQuery/EnvQueryManager.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\AIModule\Classes\AISubsystem.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\AIModule\Classes\AISystem.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\AI/AISystemBase.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AISystemBase.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AISystem.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AISubsystem.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\AIModule\Classes\EnvironmentQuery/EnvQueryInstanceBlueprintWrapper.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\AIModule\Classes\EnvironmentQuery/EQSQueryResultSourceInterface.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\EQSQueryResultSourceInterface.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\EnvQueryInstanceBlueprintWrapper.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\EnvQueryManager.generated.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Source\ActionRoguelike\Public\AI/SAICharacter.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Source\ActionRoguelike\Public\SAttributeComponent.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SAttributeComponent.generated.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SAICharacter.generated.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Public\EngineUtils.h

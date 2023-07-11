@@ -37,12 +37,18 @@ static inline void FOnHealthChanged_DelegateWrapper(const FMulticastScriptDelega
 #define ActionRoguelike_Source_ActionRoguelike_Public_SAttributeComponent_h_16_SPARSE_DATA
 #define ActionRoguelike_Source_ActionRoguelike_Public_SAttributeComponent_h_16_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execGetHealthMax); \
+	DECLARE_FUNCTION(execGetHealth); \
+	DECLARE_FUNCTION(execIsFullHealth); \
 	DECLARE_FUNCTION(execIsAlive); \
 	DECLARE_FUNCTION(execApplyHealthChange);
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SAttributeComponent_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetHealthMax); \
+	DECLARE_FUNCTION(execGetHealth); \
+	DECLARE_FUNCTION(execIsFullHealth); \
 	DECLARE_FUNCTION(execIsAlive); \
 	DECLARE_FUNCTION(execApplyHealthChange);
 
@@ -90,7 +96,8 @@ public: \
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SAttributeComponent_h_16_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__Health() { return STRUCT_OFFSET(USAttributeComponent, Health); }
+	FORCEINLINE static uint32 __PPO__Health() { return STRUCT_OFFSET(USAttributeComponent, Health); } \
+	FORCEINLINE static uint32 __PPO__HealthMax() { return STRUCT_OFFSET(USAttributeComponent, HealthMax); }
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SAttributeComponent_h_13_PROLOG

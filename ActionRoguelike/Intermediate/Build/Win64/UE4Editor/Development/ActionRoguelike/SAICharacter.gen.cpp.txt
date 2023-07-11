@@ -8,4 +8,6 @@ C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor
 C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
 C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
 C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Source\ActionRoguelike\Public\SAttributeComponent.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SAttributeComponent.generated.h
 C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SAICharacter.generated.h

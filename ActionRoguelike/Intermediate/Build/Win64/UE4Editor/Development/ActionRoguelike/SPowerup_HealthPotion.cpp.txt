@@ -1,0 +1,9 @@
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Development\ActionRoguelike\Definitions.ActionRoguelike.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Source\ActionRoguelike\Public\SPowerup_HealthPotion.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Source\ActionRoguelike\Public\SPowerupActor.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Source\ActionRoguelike\Public\SGameplayInterface.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SGameplayInterface.generated.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SPowerupActor.generated.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SPowerup_HealthPotion.generated.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Source\ActionRoguelike\Public\SAttributeComponent.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SAttributeComponent.generated.h

@@ -6,6 +6,7 @@
 #include <AIController.h>
 #include <BehaviorTree/BlackboardComponent.h>
 #include <DrawDebugHelpers.h>
+#include "SAttributeComponent.h"
 
 // Sets default values
 ASAICharacter::ASAICharacter()
@@ -15,6 +16,10 @@ ASAICharacter::ASAICharacter()
 
 	PawnSensComp = CreateDefaultSubobject<UPawnSensingComponent>("PawnSensComp");
 
+	AttributeComp = CreateDefaultSubobject<USAttributeComponent>("AttributeComp");
+
+	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
+
 }
 
 void ASAICharacter::PostInitializeComponents()
@@ -22,6 +27,12 @@ void ASAICharacter::PostInitializeComponents()
 	Super::PostInitializeComponents();
 	
 	PawnSensComp->OnSeePawn.AddDynamic(this, &ASAICharacter::OnPawnSeen);
+}
+
+void ASAICharacter::BeginPlay()
+{
+	Super::BeginPlay();
+	
 }
 
 // Called every frame
@@ -44,3 +55,12 @@ void ASAICharacter::OnPawnSeen(APawn* Pawn)
 	}
 }
 
+bool ASAICharacter::IsAlive() const
+{
+	if (!AttributeComp)
+	{
+		return false;
+	}
+
+	return AttributeComp->IsAlive();
+}

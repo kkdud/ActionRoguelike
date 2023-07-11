@@ -202,3 +202,13 @@ void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 } 
 
+bool ASCharacter::IsAlive() const
+{
+	if (!AttributeComp)
+	{
+		return false;
+	}
+
+	return AttributeComp->IsAlive();
+}
+
