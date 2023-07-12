@@ -21,6 +21,9 @@ public:
 
 protected:
 
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	float DamageAmount;
+
 	UPROPERTY(EditDefaultsOnly, Category = "Effects")
 	UParticleSystem* ImpactVFX;
 
@@ -37,11 +40,16 @@ protected:
 	virtual void OnActorHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	void Explode();
+	void DamageActor(AActor* SourceActor, AActor* TargetActor);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void Explode(AActor* SourceActor, AActor* TargetActor);
+
+
+public:	
 
 	virtual void PostInitializeComponents() override;
 
-public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

@@ -18,16 +18,7 @@ ASDashProjectile::ASDashProjectile()
 }
 
 
-void ASDashProjectile::BeginPlay()
-{
-	Super::BeginPlay();
-
-	GetWorldTimerManager().SetTimer(TimerHandle_DelayedDetonate, this, &ASDashProjectile::Explode, DetonateDelay);
-
-}
-
-
-void ASDashProjectile::Explode_Implementation()
+void ASDashProjectile::Explode_Implementation(AActor* SourceActor, AActor* TargetActor)
 {
 	GetWorldTimerManager().ClearTimer(TimerHandle_DelayedDetonate);
 
@@ -44,6 +35,11 @@ void ASDashProjectile::Explode_Implementation()
 }
 
 
+void ASDashProjectile::Detonate_Elapsed()
+{
+	Explode(nullptr, nullptr);
+}
+
 void ASDashProjectile::TeleportInstigator()
 {
 	AActor* ActorToTeleport = GetInstigator();
@@ -56,5 +52,11 @@ void ASDashProjectile::TeleportInstigator()
 }
 
 
+void ASDashProjectile::PostInitializeComponents()
+{
+	Super::PostInitializeComponents();
+
+	GetWorldTimerManager().SetTimer(TimerHandle_DelayedDetonate, this, &ASDashProjectile::Detonate_Elapsed, DetonateDelay);
+}
 
 

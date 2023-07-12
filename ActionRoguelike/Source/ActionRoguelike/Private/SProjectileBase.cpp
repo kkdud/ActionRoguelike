@@ -6,6 +6,7 @@
 #include <Particles/ParticleSystemComponent.h>
 #include <GameFramework/ProjectileMovementComponent.h>
 #include <Kismet/GameplayStatics.h>
+#include "SAttributeComponent.h"
 
 // Sets default values
 ASProjectileBase::ASProjectileBase()
@@ -26,16 +27,38 @@ ASProjectileBase::ASProjectileBase()
 	MoveComp->ProjectileGravityScale = 0.0f;
 	MoveComp->InitialSpeed = 8000.0f;
 
+	DamageAmount = -20.0f;
+
+
 }
 
 
 void ASProjectileBase::OnActorHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	Explode();
+	Explode(GetInstigator(), OtherActor);
 }
 
-void ASProjectileBase::Explode_Implementation()
+
+
+void ASProjectileBase::DamageActor_Implementation(AActor* SourceActor, AActor* TargetActor)
 {
+	if (ensure(!IsPendingKill()))
+	{
+		if (TargetActor)
+		{
+			USAttributeComponent* AttributeComp =  Cast<USAttributeComponent>(TargetActor->GetComponentByClass(USAttributeComponent::StaticClass()));
+			if (AttributeComp && AttributeComp->IsAlive())
+			{
+				AttributeComp->ApplyHealthChange(DamageAmount);
+			}
+		}
+	}
+}
+
+void ASProjectileBase::Explode_Implementation(AActor* SourceActor, AActor* TargetActor)
+{
+	DamageActor(SourceActor, TargetActor);
+
 	if (ensure(!IsPendingKill()))
 	{
 		UGameplayStatics::SpawnEmitterAtLocation(this, ImpactVFX, GetActorLocation(), GetActorRotation());
@@ -48,6 +71,7 @@ void ASProjectileBase::PostInitializeComponents()
 {
 	Super::PostInitializeComponents();
 
+	SphereComp->IgnoreActorWhenMoving(GetInstigator(), true);
 	SphereComp->OnComponentHit.AddDynamic(this, &ASProjectileBase::OnActorHit);
 }
 
@@ -55,6 +79,5 @@ void ASProjectileBase::PostInitializeComponents()
 void ASProjectileBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 

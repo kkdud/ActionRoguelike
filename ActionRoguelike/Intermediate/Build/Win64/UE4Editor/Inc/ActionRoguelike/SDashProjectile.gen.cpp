@@ -18,8 +18,42 @@ void EmptyLinkFunctionForGeneratedCodeSDashProjectile() {}
 	ACTIONROGUELIKE_API UClass* Z_Construct_UClass_ASProjectileBase();
 	UPackage* Z_Construct_UPackage__Script_ActionRoguelike();
 // End Cross Module References
+	DEFINE_FUNCTION(ASDashProjectile::execDetonate_Elapsed)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Detonate_Elapsed();
+		P_NATIVE_END;
+	}
 	void ASDashProjectile::StaticRegisterNativesASDashProjectile()
 	{
+		UClass* Class = ASDashProjectile::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "Detonate_Elapsed", &ASDashProjectile::execDetonate_Elapsed },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ASDashProjectile_Detonate_Elapsed_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASDashProjectile_Detonate_Elapsed_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SDashProjectile.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASDashProjectile_Detonate_Elapsed_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASDashProjectile, nullptr, "Detonate_Elapsed", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASDashProjectile_Detonate_Elapsed_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASDashProjectile_Detonate_Elapsed_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASDashProjectile_Detonate_Elapsed()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASDashProjectile_Detonate_Elapsed_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_ASDashProjectile_NoRegister()
 	{
@@ -28,6 +62,7 @@ void EmptyLinkFunctionForGeneratedCodeSDashProjectile() {}
 	struct Z_Construct_UClass_ASDashProjectile_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -46,6 +81,9 @@ void EmptyLinkFunctionForGeneratedCodeSDashProjectile() {}
 	UObject* (*const Z_Construct_UClass_ASDashProjectile_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_ASProjectileBase,
 		(UObject* (*)())Z_Construct_UPackage__Script_ActionRoguelike,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_ASDashProjectile_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ASDashProjectile_Detonate_Elapsed, "Detonate_Elapsed" }, // 2835816462
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASDashProjectile_Statics::Class_MetaDataParams[] = {
@@ -80,11 +118,11 @@ void EmptyLinkFunctionForGeneratedCodeSDashProjectile() {}
 		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_ASDashProjectile_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_ASDashProjectile_Statics::PropPointers),
 		0,
 		0x009000A4u,
@@ -99,7 +137,7 @@ void EmptyLinkFunctionForGeneratedCodeSDashProjectile() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASDashProjectile, 1551166652);
+	IMPLEMENT_CLASS(ASDashProjectile, 3698168197);
 	template<> ACTIONROGUELIKE_API UClass* StaticClass<ASDashProjectile>()
 	{
 		return ASDashProjectile::StaticClass();

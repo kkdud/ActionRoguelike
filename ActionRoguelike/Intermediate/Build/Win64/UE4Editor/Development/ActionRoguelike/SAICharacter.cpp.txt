@@ -63,3 +63,5 @@ C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\AIModule\Classes\Be
 C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\BlackboardData.generated.h
 C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\BlackboardComponent.generated.h
 C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Public\DrawDebugHelpers.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\AIModule\Classes\BrainComponent.h
+C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\BrainComponent.generated.h

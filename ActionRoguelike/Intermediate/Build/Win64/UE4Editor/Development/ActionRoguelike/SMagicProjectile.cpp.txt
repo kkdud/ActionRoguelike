@@ -1,20 +1,5 @@
 C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Development\ActionRoguelike\Definitions.ActionRoguelike.h
 C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Source\ActionRoguelike\Public\SMagicProjectile.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Source\ActionRoguelike\Public\SProjectileBase.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SProjectileBase.generated.h
 C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SMagicProjectile.generated.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/SphereComponent.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SphereComponent.generated.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/ProjectileMovementComponent.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/MovementComponent.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\MovementComponent.generated.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ProjectileMovementComponent.generated.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/ParticleSystemComponent.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/ParticleSystem.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/ParticlePerfStats.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ParticleSystem.generated.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/Emitter.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Emitter.generated.h
-C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ParticleSystemComponent.generated.h
-C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Source\ActionRoguelike\Public\SAttributeComponent.h
-C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SAttributeComponent.generated.h

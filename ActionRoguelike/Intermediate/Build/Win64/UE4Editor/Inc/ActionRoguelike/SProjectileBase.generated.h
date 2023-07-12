@@ -8,8 +8,8 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class UPrimitiveComponent;
 class AActor;
+class UPrimitiveComponent;
 struct FVector;
 struct FHitResult;
 #ifdef ACTIONROGUELIKE_SProjectileBase_generated_h
@@ -19,20 +19,36 @@ struct FHitResult;
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_SPARSE_DATA
 #define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_RPC_WRAPPERS \
-	virtual void Explode_Implementation(); \
+	virtual void Explode_Implementation(AActor* SourceActor, AActor* TargetActor); \
+	virtual void DamageActor_Implementation(AActor* SourceActor, AActor* TargetActor); \
  \
 	DECLARE_FUNCTION(execExplode); \
+	DECLARE_FUNCTION(execDamageActor); \
 	DECLARE_FUNCTION(execOnActorHit);
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	virtual void Explode_Implementation(); \
+	virtual void Explode_Implementation(AActor* SourceActor, AActor* TargetActor); \
+	virtual void DamageActor_Implementation(AActor* SourceActor, AActor* TargetActor); \
  \
 	DECLARE_FUNCTION(execExplode); \
+	DECLARE_FUNCTION(execDamageActor); \
 	DECLARE_FUNCTION(execOnActorHit);
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_EVENT_PARMS
+#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_EVENT_PARMS \
+	struct SProjectileBase_eventDamageActor_Parms \
+	{ \
+		AActor* SourceActor; \
+		AActor* TargetActor; \
+	}; \
+	struct SProjectileBase_eventExplode_Parms \
+	{ \
+		AActor* SourceActor; \
+		AActor* TargetActor; \
+	};
+
+
 #define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_CALLBACK_WRAPPERS
 #define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_INCLASS_NO_PURE_DECLS \
 private: \
@@ -77,6 +93,7 @@ public: \
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__DamageAmount() { return STRUCT_OFFSET(ASProjectileBase, DamageAmount); } \
 	FORCEINLINE static uint32 __PPO__ImpactVFX() { return STRUCT_OFFSET(ASProjectileBase, ImpactVFX); } \
 	FORCEINLINE static uint32 __PPO__SphereComp() { return STRUCT_OFFSET(ASProjectileBase, SphereComp); } \
 	FORCEINLINE static uint32 __PPO__MoveComp() { return STRUCT_OFFSET(ASProjectileBase, MoveComp); } \

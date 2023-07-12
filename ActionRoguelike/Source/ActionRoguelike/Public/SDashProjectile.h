@@ -32,10 +32,15 @@ protected:
 
 protected:
 
-	virtual void BeginPlay() override;
+	UFUNCTION()
+	void Detonate_Elapsed();
 
-	virtual void Explode_Implementation() override;
+	void Explode_Implementation(AActor* SourceActor, AActor* TargetActor);
 
 	void TeleportInstigator();
+
+public:
+
+	virtual void PostInitializeComponents() override;
 
 };

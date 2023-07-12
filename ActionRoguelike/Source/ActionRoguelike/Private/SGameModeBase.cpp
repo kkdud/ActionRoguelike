@@ -19,6 +19,8 @@ void ASGameModeBase::StartPlay()
 {
 	Super::StartPlay();
 
+	CheckNecessaryParamSettings();
+
 	GetWorldTimerManager().SetTimer(TimerHandle_SpawnBots, this, &ASGameModeBase::SpawnBotTimerElapsed, SpawnBotTimerInterval, true);
 }
 
@@ -50,14 +52,16 @@ void ASGameModeBase::OnQueryCompleted(UEnvQueryInstanceBlueprintWrapper* QueryIn
 
 	float MaxBotCount = 10.0f;
 	
-	if (NrOfAliveBots > MaxBotCount)
-	{
-		return;
-	}
-
 	if (DifficultyCurve)
 	{
 		MaxBotCount = DifficultyCurve->GetFloatValue(GetWorld()->TimeSeconds);
+	}
+
+	//UE_LOG(LogTemp, Warning, TEXT("DifficultyCurve = %p, NrOfAliveBots = %d, MaxBotCount = %f"), DifficultyCurve, NrOfAliveBots, MaxBotCount);
+
+	if (NrOfAliveBots >= MaxBotCount)
+	{
+		return;
 	}
 
 	TArray<FVector> Locations = QueryInstance->GetResultsAsLocations();
@@ -66,4 +70,10 @@ void ASGameModeBase::OnQueryCompleted(UEnvQueryInstanceBlueprintWrapper* QueryIn
 	{
 		GetWorld()->SpawnActor<AActor>(MinionClass, Locations[0], FRotator::ZeroRotator);
 	}
+}
+
+void ASGameModeBase::CheckNecessaryParamSettings()
+{
+	ensureMsgf(MinionClass, TEXT("Necessary parameter [MinionClass] is missing, otherwise it will crash."));
+	ensureMsgf(SpawnBotQuery, TEXT("Necessary parameter [SpawnBotQuery] is missing, otherwise it will crash."));
 }

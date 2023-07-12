@@ -8,6 +8,8 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
+class USAttributeComponent;
 class APawn;
 #ifdef ACTIONROGUELIKE_SAICharacter_generated_h
 #error "SAICharacter.generated.h already included, missing '#pragma once' in SAICharacter.h"
@@ -18,12 +20,14 @@ class APawn;
 #define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execIsAlive); \
+	DECLARE_FUNCTION(execOnHealthChanged); \
 	DECLARE_FUNCTION(execOnPawnSeen);
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execIsAlive); \
+	DECLARE_FUNCTION(execOnHealthChanged); \
 	DECLARE_FUNCTION(execOnPawnSeen);
 
 

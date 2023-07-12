@@ -8,6 +8,9 @@
 #include "SGameplayInterface.h"
 #include "SInteractionComponent.h"
 #include "SAttributeComponent.h"
+#include <Components/CapsuleComponent.h>
+
+
 
 // Sets default values
 ASCharacter::ASCharacter()
@@ -114,7 +117,7 @@ void ASCharacter::PrimaryInteract()
 
 void ASCharacter::FireToMe()
 {
-	FVector Location = FVector(200.0f, 400.0f, 400.0f);
+	FVector Location = FVector(0.0f, 0.0f, 1400.0f);
 	FRotator Rotator = FRotationMatrix::MakeFromX(GetActorLocation() - Location).Rotator();
 
 	FTransform SpawnTM = FTransform(Rotator, Location);
@@ -161,7 +164,11 @@ void ASCharacter::SpawnProjectile(TSubclassOf<AActor> ClassToSpawn)
 
 		FTransform SpawnTM = FTransform(ProjRotation, HandLocation);
 
-		GetWorld()->SpawnActor<AActor>(ClassToSpawn, SpawnTM, SpawnParams);
+		AActor* NewProjActor = GetWorld()->SpawnActor<AActor>(ClassToSpawn, SpawnTM, SpawnParams);
+		if (NewProjActor)
+		{
+			GetCapsuleComponent()->IgnoreActorWhenMoving(NewProjActor, true);
+		}
 	}
 }
 

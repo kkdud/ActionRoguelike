@@ -5,6 +5,7 @@
 #include <AIController.h>
 #include <GameFramework/Character.h>
 #include <BehaviorTree/BlackboardComponent.h>
+#include <Components/CapsuleComponent.h>
 
 
 
@@ -32,10 +33,17 @@ EBTNodeResult::Type USBTTask_RangedAttack::ExecuteTask(UBehaviorTreeComponent& O
 
 		FActorSpawnParameters Params;
 		Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+		Params.Instigator = AICharacter;
 
-		AActor* NewProj = GetWorld()->SpawnActor<AActor>(ProjectileClass, MuzzleLocation, MuzzleRotation, Params);
+		AActor* NewProjActor = GetWorld()->SpawnActor<AActor>(ProjectileClass, MuzzleLocation, MuzzleRotation, Params);
 
-		return NewProj ? EBTNodeResult::Succeeded : EBTNodeResult::Failed;
+		if (NewProjActor)
+		{
+			AICharacter->GetCapsuleComponent()->IgnoreActorWhenMoving(NewProjActor, true);
+			return EBTNodeResult::Succeeded;
+		}
+
+		return EBTNodeResult::Failed;
 	}
 
 	return EBTNodeResult::Failed;
