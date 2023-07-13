@@ -33,6 +33,8 @@ ASCharacter::ASCharacter()
 
 	bUseControllerRotationYaw = false;
 
+	TimeToHitParamName = "TimeToHit";
+
 }
 
 
@@ -175,10 +177,17 @@ void ASCharacter::SpawnProjectile(TSubclassOf<AActor> ClassToSpawn)
 
 void ASCharacter::OnHealthChanged(AActor* InstigatorActor, USAttributeComponent* OwningComp, float NewHealth, float Delta)
 {
-	if (NewHealth < 0.0f && Delta < 0.0f)
+	if (Delta < 0.0f)
 	{
-		APlayerController* pc = Cast<APlayerController>(GetController());
-		//DisableInput(pc);
+		// Hit flash
+		GetMesh()->SetScalarParameterValueOnMaterials(TimeToHitParamName, GetWorld()->TimeSeconds);
+
+		if (NewHealth < 0.0f)
+		{
+			//APlayerController* pc = Cast<APlayerController>(GetController());
+			//DisableInput(pc);
+		}
+
 	}
 }
 

@@ -13,11 +13,14 @@ ASTargetDummy::ASTargetDummy()
 
 
 	AttributeComp = CreateDefaultSubobject<USAttributeComponent>("AttributeComp");
+	AttributeComp->OnHealthChanged.AddDynamic(this, &ASTargetDummy::OnHealthChanged);
 
 	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>("MeshComp");
 	RootComponent = MeshComp;
 
-	AttributeComp->OnHealthChanged.AddDynamic(this, &ASTargetDummy::OnHealthChanged);
+	TimeToHitName = "TimeToHit";
+	HitFlashSpeedName = "HitFlashSpeed";
+	HitFlashSpeedValue = 4.0f;
 }
 
 // Called when the game starts or when spawned
@@ -32,7 +35,8 @@ void ASTargetDummy::OnHealthChanged(AActor* InstigatorActor, USAttributeComponen
 {
 	if (Delta < 0.0f)
 	{
-		MeshComp->SetScalarParameterValueOnMaterials("TimeToHit", GetWorld()->TimeSeconds);
+		MeshComp->SetScalarParameterValueOnMaterials(TimeToHitName, GetWorld()->TimeSeconds);
+		MeshComp->SetScalarParameterValueOnMaterials(HitFlashSpeedName, HitFlashSpeedValue);
 	}
 
 }

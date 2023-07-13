@@ -20,6 +20,15 @@ public:
 
 protected:
 
+	UPROPERTY(EditAnywhere, Category = "Material")
+	FName TimeToHitName;
+
+	UPROPERTY(EditAnywhere, Category = "Material")
+	FName HitFlashSpeedName;
+
+	UPROPERTY(EditAnywhere, Category = "Material")
+	float HitFlashSpeedValue;
+
 	UPROPERTY(VisibleAnywhere)
 	USAttributeComponent* AttributeComp;
 

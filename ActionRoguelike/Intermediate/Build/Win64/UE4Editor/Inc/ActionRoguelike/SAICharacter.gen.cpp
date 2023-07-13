@@ -29,6 +29,14 @@ void EmptyLinkFunctionForGeneratedCodeSAICharacter() {}
 		*(bool*)Z_Param__Result=P_THIS->IsAlive();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ASAICharacter::execSetTargetActor)
+	{
+		P_GET_OBJECT(AActor,Z_Param_TargetActor);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetTargetActor(Z_Param_TargetActor);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ASAICharacter::execOnHealthChanged)
 	{
 		P_GET_OBJECT(AActor,Z_Param_InstigatorActor);
@@ -55,6 +63,7 @@ void EmptyLinkFunctionForGeneratedCodeSAICharacter() {}
 			{ "IsAlive", &ASAICharacter::execIsAlive },
 			{ "OnHealthChanged", &ASAICharacter::execOnHealthChanged },
 			{ "OnPawnSeen", &ASAICharacter::execOnPawnSeen },
+			{ "SetTargetActor", &ASAICharacter::execSetTargetActor },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -179,6 +188,38 @@ void EmptyLinkFunctionForGeneratedCodeSAICharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ASAICharacter_SetTargetActor_Statics
+	{
+		struct SAICharacter_eventSetTargetActor_Parms
+		{
+			AActor* TargetActor;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TargetActor;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ASAICharacter_SetTargetActor_Statics::NewProp_TargetActor = { "TargetActor", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SAICharacter_eventSetTargetActor_Parms, TargetActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASAICharacter_SetTargetActor_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASAICharacter_SetTargetActor_Statics::NewProp_TargetActor,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASAICharacter_SetTargetActor_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/AI/SAICharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASAICharacter_SetTargetActor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASAICharacter, nullptr, "SetTargetActor", nullptr, nullptr, sizeof(SAICharacter_eventSetTargetActor_Parms), Z_Construct_UFunction_ASAICharacter_SetTargetActor_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASAICharacter_SetTargetActor_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASAICharacter_SetTargetActor_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASAICharacter_SetTargetActor_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASAICharacter_SetTargetActor()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASAICharacter_SetTargetActor_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_ASAICharacter_NoRegister()
 	{
 		return ASAICharacter::StaticClass();
@@ -190,6 +231,10 @@ void EmptyLinkFunctionForGeneratedCodeSAICharacter() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TimeToHitParamName_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FNamePropertyParams NewProp_TimeToHitParamName;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PawnSensComp_MetaData[];
 #endif
@@ -210,6 +255,7 @@ void EmptyLinkFunctionForGeneratedCodeSAICharacter() {}
 		{ &Z_Construct_UFunction_ASAICharacter_IsAlive, "IsAlive" }, // 3210947290
 		{ &Z_Construct_UFunction_ASAICharacter_OnHealthChanged, "OnHealthChanged" }, // 935437434
 		{ &Z_Construct_UFunction_ASAICharacter_OnPawnSeen, "OnPawnSeen" }, // 732256161
+		{ &Z_Construct_UFunction_ASAICharacter_SetTargetActor, "SetTargetActor" }, // 3830716151
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASAICharacter_Statics::Class_MetaDataParams[] = {
@@ -218,6 +264,13 @@ void EmptyLinkFunctionForGeneratedCodeSAICharacter() {}
 		{ "ModuleRelativePath", "Public/AI/SAICharacter.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASAICharacter_Statics::NewProp_TimeToHitParamName_MetaData[] = {
+		{ "Category", "Effects" },
+		{ "ModuleRelativePath", "Public/AI/SAICharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FNamePropertyParams Z_Construct_UClass_ASAICharacter_Statics::NewProp_TimeToHitParamName = { "TimeToHitParamName", nullptr, (EPropertyFlags)0x0020080000020001, UE4CodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASAICharacter, TimeToHitParamName), METADATA_PARAMS(Z_Construct_UClass_ASAICharacter_Statics::NewProp_TimeToHitParamName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASAICharacter_Statics::NewProp_TimeToHitParamName_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASAICharacter_Statics::NewProp_PawnSensComp_MetaData[] = {
 		{ "Category", "AI" },
@@ -235,6 +288,7 @@ void EmptyLinkFunctionForGeneratedCodeSAICharacter() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASAICharacter_Statics::NewProp_AttributeComp = { "AttributeComp", nullptr, (EPropertyFlags)0x00200800000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASAICharacter, AttributeComp), Z_Construct_UClass_USAttributeComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASAICharacter_Statics::NewProp_AttributeComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASAICharacter_Statics::NewProp_AttributeComp_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASAICharacter_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASAICharacter_Statics::NewProp_TimeToHitParamName,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASAICharacter_Statics::NewProp_PawnSensComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASAICharacter_Statics::NewProp_AttributeComp,
 	};
@@ -265,7 +319,7 @@ void EmptyLinkFunctionForGeneratedCodeSAICharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASAICharacter, 3398197269);
+	IMPLEMENT_CLASS(ASAICharacter, 3925467151);
 	template<> ACTIONROGUELIKE_API UClass* StaticClass<ASAICharacter>()
 	{
 		return ASAICharacter::StaticClass();

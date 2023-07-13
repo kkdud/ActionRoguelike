@@ -69,6 +69,7 @@ public: \
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__TimeToHitParamName() { return STRUCT_OFFSET(ASCharacter, TimeToHitParamName); } \
 	FORCEINLINE static uint32 __PPO__ProjectileClass() { return STRUCT_OFFSET(ASCharacter, ProjectileClass); } \
 	FORCEINLINE static uint32 __PPO__DashProjectileClass() { return STRUCT_OFFSET(ASCharacter, DashProjectileClass); } \
 	FORCEINLINE static uint32 __PPO__BlackholeProjectileClass() { return STRUCT_OFFSET(ASCharacter, BlackholeProjectileClass); } \

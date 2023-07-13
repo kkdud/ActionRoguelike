@@ -69,6 +69,9 @@ public: \
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_STargetDummy_h_15_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__TimeToHitName() { return STRUCT_OFFSET(ASTargetDummy, TimeToHitName); } \
+	FORCEINLINE static uint32 __PPO__HitFlashSpeedName() { return STRUCT_OFFSET(ASTargetDummy, HitFlashSpeedName); } \
+	FORCEINLINE static uint32 __PPO__HitFlashSpeedValue() { return STRUCT_OFFSET(ASTargetDummy, HitFlashSpeedValue); } \
 	FORCEINLINE static uint32 __PPO__AttributeComp() { return STRUCT_OFFSET(ASTargetDummy, AttributeComp); } \
 	FORCEINLINE static uint32 __PPO__MeshComp() { return STRUCT_OFFSET(ASTargetDummy, MeshComp); }
 

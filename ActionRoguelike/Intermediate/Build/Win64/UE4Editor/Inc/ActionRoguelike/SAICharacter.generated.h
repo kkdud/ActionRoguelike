@@ -20,6 +20,7 @@ class APawn;
 #define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execIsAlive); \
+	DECLARE_FUNCTION(execSetTargetActor); \
 	DECLARE_FUNCTION(execOnHealthChanged); \
 	DECLARE_FUNCTION(execOnPawnSeen);
 
@@ -27,6 +28,7 @@ class APawn;
 #define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execIsAlive); \
+	DECLARE_FUNCTION(execSetTargetActor); \
 	DECLARE_FUNCTION(execOnHealthChanged); \
 	DECLARE_FUNCTION(execOnPawnSeen);
 
@@ -74,6 +76,7 @@ public: \
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__TimeToHitParamName() { return STRUCT_OFFSET(ASAICharacter, TimeToHitParamName); } \
 	FORCEINLINE static uint32 __PPO__PawnSensComp() { return STRUCT_OFFSET(ASAICharacter, PawnSensComp); } \
 	FORCEINLINE static uint32 __PPO__AttributeComp() { return STRUCT_OFFSET(ASAICharacter, AttributeComp); }
 

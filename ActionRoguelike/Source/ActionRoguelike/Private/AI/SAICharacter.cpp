@@ -21,6 +21,7 @@ ASAICharacter::ASAICharacter()
 
 	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
 
+	TimeToHitParamName = "TimeToHit";
 }
 
 void ASAICharacter::PostInitializeComponents()
@@ -61,8 +62,12 @@ void ASAICharacter::OnHealthChanged(AActor* InstigatorActor, USAttributeComponen
 {
 	if (Delta < 0.0f)
 	{
+		SetTargetActor(InstigatorActor);
+
 		if (NewHealth <= 0.0f)
 		{
+			GetMesh()->SetScalarParameterValueOnMaterials(TimeToHitParamName, GetWorld()->TimeSeconds);
+
 			AAIController* AIC = Cast<AAIController>(GetController());
 			if (AIC)
 			{
@@ -76,6 +81,20 @@ void ASAICharacter::OnHealthChanged(AActor* InstigatorActor, USAttributeComponen
 		}
 	}
 }
+
+void ASAICharacter::SetTargetActor(AActor* TargetActor)
+{
+	AAIController* AIC = Cast<AAIController>(GetController());
+	if (ensure(AIC))
+	{
+		UBlackboardComponent* BBComp = AIC->GetBlackboardComponent();
+		if (ensure(BBComp))
+		{
+			BBComp->SetValueAsObject("TargetActor", TargetActor);
+		}
+	}
+}
+
 
 bool ASAICharacter::IsAlive() const
 {
