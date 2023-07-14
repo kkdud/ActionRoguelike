@@ -18,12 +18,14 @@ class USAttributeComponent;
 #define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_SPARSE_DATA
 #define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execOnHealthChanged);
+	DECLARE_FUNCTION(execOnHealthChanged); \
+	DECLARE_FUNCTION(execHealthSelf);
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execOnHealthChanged);
+	DECLARE_FUNCTION(execOnHealthChanged); \
+	DECLARE_FUNCTION(execHealthSelf);
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_INCLASS_NO_PURE_DECLS \

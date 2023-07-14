@@ -5,18 +5,28 @@
 #include <DrawDebugHelpers.h>
 
 
-bool USAttributeComponent::ApplyHealthChange(float Delta)
+bool USAttributeComponent::ApplyHealthChange(AActor* SourceActor, float Delta)
 {
-	Health += Delta;
+	if (!GetOwner()->CanBeDamaged())
+	{
+		return false;
+	}
 
-	OnHealthChanged.Broadcast(nullptr, this, Health, Delta);
+	float OldHealth = Health;
+	float NewHealth = FMath::Clamp(Health + Delta, 0.0f, HealthMax);
+
+	float ActualDelta = NewHealth - OldHealth;
+
+	Health = NewHealth;
+
+	OnHealthChanged.Broadcast(SourceActor, this, Health, ActualDelta);
 
 	FVector Location = GetOwner()->GetActorLocation();
 	FString CombinedString = FString::Printf(TEXT("Health: %f"), Health);
 
 	DrawDebugString(GetWorld(), Location, CombinedString, nullptr, FColor::Green, 2.0f, false, 3.0f);
 
-	return true;
+	return ActualDelta != 0.0f;
 }
 
 
@@ -38,6 +48,12 @@ float USAttributeComponent::GetHealth() const
 float USAttributeComponent::GetHealthMax() const
 {
 	return HealthMax;
+}
+
+
+bool USAttributeComponent::Kill(AActor* InstigatorActor)
+{
+	return ApplyHealthChange(InstigatorActor, HealthMax);
 }
 
 

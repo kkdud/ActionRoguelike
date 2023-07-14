@@ -9,20 +9,21 @@
 
 
 
-ASGameModeBase::ASGameModeBase()
+
+void ASGameModeBase::KillAll()
 {
-	SpawnBotTimerInterval = 2.0f;
+	for (TActorIterator<ASAICharacter> It(GetWorld()); It; ++It)
+	{
+		ASAICharacter* Bot = *It;
+
+		USAttributeComponent* AttributeComp = USAttributeComponent::GetAttributes(Bot);
+		if (ensure(AttributeComp) && AttributeComp->IsAlive())
+		{
+			AttributeComp->Kill(this);
+		}
+	}
 }
 
-
-void ASGameModeBase::StartPlay()
-{
-	Super::StartPlay();
-
-	CheckNecessaryParamSettings();
-
-	GetWorldTimerManager().SetTimer(TimerHandle_SpawnBots, this, &ASGameModeBase::SpawnBotTimerElapsed, SpawnBotTimerInterval, true);
-}
 
 void ASGameModeBase::SpawnBotTimerElapsed()
 {
@@ -76,4 +77,20 @@ void ASGameModeBase::CheckNecessaryParamSettings()
 {
 	ensureMsgf(MinionClass, TEXT("Necessary parameter [MinionClass] is missing, otherwise it will crash."));
 	ensureMsgf(SpawnBotQuery, TEXT("Necessary parameter [SpawnBotQuery] is missing, otherwise it will crash."));
+}
+
+
+ASGameModeBase::ASGameModeBase()
+{
+	SpawnBotTimerInterval = 2.0f;
+}
+
+
+void ASGameModeBase::StartPlay()
+{
+	Super::StartPlay();
+
+	CheckNecessaryParamSettings();
+
+	GetWorldTimerManager().SetTimer(TimerHandle_SpawnBots, this, &ASGameModeBase::SpawnBotTimerElapsed, SpawnBotTimerInterval, true);
 }

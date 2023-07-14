@@ -20,12 +20,12 @@ UCLASS()
 class ACTIONROGUELIKE_API ASGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
+
+		
 public:
 
-	ASGameModeBase();
-
-	virtual void StartPlay() override;
+	UFUNCTION(Exec)
+	void KillAll();
 
 protected:
 
@@ -51,5 +51,12 @@ protected:
 
 	virtual void CheckNecessaryParamSettings();
 
+
+
+public:
+
+	ASGameModeBase();
+
+	virtual void StartPlay() override;
 
 };

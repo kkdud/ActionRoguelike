@@ -17,6 +17,16 @@ class ACTIONROGUELIKE_API ASCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
+
+
+public:
+
+	bool IsAlive() const;
+
+	UFUNCTION(Exec)
+	void HealthSelf(float Amount = 100);
+
+
 protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Effects")
@@ -40,10 +50,6 @@ protected:
 
 	FTimerHandle TimeHandle_BlackholeAttack;
 
-
-public:
-	// Sets default values for this character's properties
-	ASCharacter();
 
 protected:
 
@@ -98,10 +104,9 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	// Sets default values for this character's properties
+	ASCharacter();
 
-public:
 
-	bool IsAlive() const;
-	
 
 };

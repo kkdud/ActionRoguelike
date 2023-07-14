@@ -49,7 +49,7 @@ void ASProjectileBase::DamageActor_Implementation(AActor* SourceActor, AActor* T
 			USAttributeComponent* AttributeComp =  Cast<USAttributeComponent>(TargetActor->GetComponentByClass(USAttributeComponent::StaticClass()));
 			if (AttributeComp && AttributeComp->IsAlive())
 			{
-				AttributeComp->ApplyHealthChange(DamageAmount);
+				AttributeComp->ApplyHealthChange(SourceActor, DamageAmount);
 			}
 		}
 	}

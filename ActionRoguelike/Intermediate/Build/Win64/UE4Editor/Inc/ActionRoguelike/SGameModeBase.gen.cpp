@@ -40,14 +40,44 @@ void EmptyLinkFunctionForGeneratedCodeSGameModeBase() {}
 		P_THIS->SpawnBotTimerElapsed();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ASGameModeBase::execKillAll)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->KillAll();
+		P_NATIVE_END;
+	}
 	void ASGameModeBase::StaticRegisterNativesASGameModeBase()
 	{
 		UClass* Class = ASGameModeBase::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "KillAll", &ASGameModeBase::execKillAll },
 			{ "OnQueryCompleted", &ASGameModeBase::execOnQueryCompleted },
 			{ "SpawnBotTimerElapsed", &ASGameModeBase::execSpawnBotTimerElapsed },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ASGameModeBase_KillAll_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASGameModeBase_KillAll_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SGameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASGameModeBase_KillAll_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASGameModeBase, nullptr, "KillAll", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020601, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASGameModeBase_KillAll_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASGameModeBase_KillAll_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASGameModeBase_KillAll()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASGameModeBase_KillAll_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ASGameModeBase_OnQueryCompleted_Statics
 	{
@@ -143,6 +173,7 @@ void EmptyLinkFunctionForGeneratedCodeSGameModeBase() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ActionRoguelike,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASGameModeBase_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ASGameModeBase_KillAll, "KillAll" }, // 450896440
 		{ &Z_Construct_UFunction_ASGameModeBase_OnQueryCompleted, "OnQueryCompleted" }, // 1668524261
 		{ &Z_Construct_UFunction_ASGameModeBase_SpawnBotTimerElapsed, "SpawnBotTimerElapsed" }, // 3354423567
 	};
@@ -216,7 +247,7 @@ void EmptyLinkFunctionForGeneratedCodeSGameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASGameModeBase, 2020021832);
+	IMPLEMENT_CLASS(ASGameModeBase, 2409143489);
 	template<> ACTIONROGUELIKE_API UClass* StaticClass<ASGameModeBase>()
 	{
 		return ASGameModeBase::StaticClass();

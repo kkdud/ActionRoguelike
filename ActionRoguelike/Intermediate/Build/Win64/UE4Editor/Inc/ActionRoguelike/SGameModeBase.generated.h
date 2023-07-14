@@ -18,13 +18,15 @@ class UEnvQueryInstanceBlueprintWrapper;
 #define ActionRoguelike_Source_ActionRoguelike_Public_SGameModeBase_h_22_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnQueryCompleted); \
-	DECLARE_FUNCTION(execSpawnBotTimerElapsed);
+	DECLARE_FUNCTION(execSpawnBotTimerElapsed); \
+	DECLARE_FUNCTION(execKillAll);
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SGameModeBase_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnQueryCompleted); \
-	DECLARE_FUNCTION(execSpawnBotTimerElapsed);
+	DECLARE_FUNCTION(execSpawnBotTimerElapsed); \
+	DECLARE_FUNCTION(execKillAll);
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SGameModeBase_h_22_INCLASS_NO_PURE_DECLS \

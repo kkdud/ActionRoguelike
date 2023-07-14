@@ -8,6 +8,7 @@
 #include <DrawDebugHelpers.h>
 #include "SAttributeComponent.h"
 #include <BrainComponent.h>
+#include "SWorldUserWidget.h"
 
 // Sets default values
 ASAICharacter::ASAICharacter()
@@ -47,14 +48,9 @@ void ASAICharacter::Tick(float DeltaTime)
 
 void ASAICharacter::OnPawnSeen(APawn* Pawn) 
 {
-	AAIController* AIC = Cast<AAIController>(GetController());
-	if (AIC)
+	if (GetInstigator() != this)
 	{
-		UBlackboardComponent* BBComp = AIC->GetBlackboardComponent();
-
-		BBComp->SetValueAsObject("TargetActor", Pawn);
-
-		DrawDebugString(GetWorld(), Pawn->GetActorLocation(), "PLAYER SPOTTED", nullptr, FColor::Green, 2.0f, false, 2.0f);
+		SetTargetActor(Pawn);
 	}
 }
 
@@ -62,7 +58,20 @@ void ASAICharacter::OnHealthChanged(AActor* InstigatorActor, USAttributeComponen
 {
 	if (Delta < 0.0f)
 	{
-		SetTargetActor(InstigatorActor);
+		if (InstigatorActor != this)
+		{
+			SetTargetActor(InstigatorActor);
+		}
+
+		if (ActiveHealthBar == nullptr)
+		{
+			ActiveHealthBar = CreateWidget<USWorldUserWidget>(GetWorld(), HealthBarWidgetClass);
+			if (ActiveHealthBar)
+			{
+				ActiveHealthBar->SetAttachedActor(this);
+				ActiveHealthBar->AddToViewport();
+			}
+		}
 
 		if (NewHealth <= 0.0f)
 		{

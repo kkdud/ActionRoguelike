@@ -16,8 +16,8 @@ class APawn;
 #endif
 #define ACTIONROGUELIKE_SAICharacter_generated_h
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_SPARSE_DATA
-#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_RPC_WRAPPERS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_SPARSE_DATA
+#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execIsAlive); \
 	DECLARE_FUNCTION(execSetTargetActor); \
@@ -25,7 +25,7 @@ class APawn;
 	DECLARE_FUNCTION(execOnPawnSeen);
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execIsAlive); \
 	DECLARE_FUNCTION(execSetTargetActor); \
@@ -33,7 +33,7 @@ class APawn;
 	DECLARE_FUNCTION(execOnPawnSeen);
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_INCLASS_NO_PURE_DECLS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASAICharacter(); \
 	friend struct Z_Construct_UClass_ASAICharacter_Statics; \
@@ -42,7 +42,7 @@ public: \
 	DECLARE_SERIALIZER(ASAICharacter)
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_INCLASS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_INCLASS \
 private: \
 	static void StaticRegisterNativesASAICharacter(); \
 	friend struct Z_Construct_UClass_ASAICharacter_Statics; \
@@ -51,7 +51,7 @@ public: \
 	DECLARE_SERIALIZER(ASAICharacter)
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_STANDARD_CONSTRUCTORS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ASAICharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ASAICharacter) \
@@ -64,7 +64,7 @@ private: \
 public:
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_ENHANCED_CONSTRUCTORS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ASAICharacter(ASAICharacter&&); \
@@ -75,33 +75,34 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ASAICharacter)
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_PRIVATE_PROPERTY_OFFSET \
+#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__HealthBarWidgetClass() { return STRUCT_OFFSET(ASAICharacter, HealthBarWidgetClass); } \
 	FORCEINLINE static uint32 __PPO__TimeToHitParamName() { return STRUCT_OFFSET(ASAICharacter, TimeToHitParamName); } \
 	FORCEINLINE static uint32 __PPO__PawnSensComp() { return STRUCT_OFFSET(ASAICharacter, PawnSensComp); } \
 	FORCEINLINE static uint32 __PPO__AttributeComp() { return STRUCT_OFFSET(ASAICharacter, AttributeComp); }
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_13_PROLOG
-#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_GENERATED_BODY_LEGACY \
+#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_15_PROLOG
+#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_PRIVATE_PROPERTY_OFFSET \
-	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_SPARSE_DATA \
-	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_RPC_WRAPPERS \
-	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_INCLASS \
-	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_STANDARD_CONSTRUCTORS \
+	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_PRIVATE_PROPERTY_OFFSET \
+	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_SPARSE_DATA \
+	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_RPC_WRAPPERS \
+	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_INCLASS \
+	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_GENERATED_BODY \
+#define ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_PRIVATE_PROPERTY_OFFSET \
-	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_SPARSE_DATA \
-	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_INCLASS_NO_PURE_DECLS \
-	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_16_ENHANCED_CONSTRUCTORS \
+	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_PRIVATE_PROPERTY_OFFSET \
+	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_SPARSE_DATA \
+	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_INCLASS_NO_PURE_DECLS \
+	ActionRoguelike_Source_ActionRoguelike_Public_AI_SAICharacter_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -11,30 +11,19 @@
 #include <Components/CapsuleComponent.h>
 
 
-
-// Sets default values
-ASCharacter::ASCharacter()
+bool ASCharacter::IsAlive() const
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	if (!AttributeComp)
+	{
+		return false;
+	}
 
-	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>("SpringArmComp");
-	SpringArmComp->SetupAttachment(RootComponent);
-	SpringArmComp->bUsePawnControlRotation = true;
+	return AttributeComp->IsAlive();
+}
 
-	CameraComp = CreateDefaultSubobject<UCameraComponent>("CameraComp");
-	CameraComp->SetupAttachment(SpringArmComp);
-
-	InteractionComp = CreateDefaultSubobject<USInteractionComponent>("InteractionComp");
-
-	AttributeComp = CreateDefaultSubobject<USAttributeComponent>("AttributeComp");
-
-	GetCharacterMovement()->bOrientRotationToMovement = true;
-
-	bUseControllerRotationYaw = false;
-
-	TimeToHitParamName = "TimeToHit";
-
+void ASCharacter::HealthSelf(float Amount /* = 100 */)
+{
+	AttributeComp->ApplyHealthChange(this, Amount);
 }
 
 
@@ -218,13 +207,31 @@ void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 } 
 
-bool ASCharacter::IsAlive() const
+
+
+
+
+// Sets default values
+ASCharacter::ASCharacter()
 {
-	if (!AttributeComp)
-	{
-		return false;
-	}
+	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	PrimaryActorTick.bCanEverTick = true;
 
-	return AttributeComp->IsAlive();
+	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>("SpringArmComp");
+	SpringArmComp->SetupAttachment(RootComponent);
+	SpringArmComp->bUsePawnControlRotation = true;
+
+	CameraComp = CreateDefaultSubobject<UCameraComponent>("CameraComp");
+	CameraComp->SetupAttachment(SpringArmComp);
+
+	InteractionComp = CreateDefaultSubobject<USInteractionComponent>("InteractionComp");
+
+	AttributeComp = CreateDefaultSubobject<USAttributeComponent>("AttributeComp");
+
+	GetCharacterMovement()->bOrientRotationToMovement = true;
+
+	bUseControllerRotationYaw = false;
+
+	TimeToHitParamName = "TimeToHit";
+
 }
-

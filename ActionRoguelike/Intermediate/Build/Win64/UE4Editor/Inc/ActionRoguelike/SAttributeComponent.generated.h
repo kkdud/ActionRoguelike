@@ -39,6 +39,7 @@ static inline void FOnHealthChanged_DelegateWrapper(const FMulticastScriptDelega
  \
 	DECLARE_FUNCTION(execIsActorAlive); \
 	DECLARE_FUNCTION(execGetAttributes); \
+	DECLARE_FUNCTION(execKill); \
 	DECLARE_FUNCTION(execGetHealthMax); \
 	DECLARE_FUNCTION(execGetHealth); \
 	DECLARE_FUNCTION(execIsFullHealth); \
@@ -50,6 +51,7 @@ static inline void FOnHealthChanged_DelegateWrapper(const FMulticastScriptDelega
  \
 	DECLARE_FUNCTION(execIsActorAlive); \
 	DECLARE_FUNCTION(execGetAttributes); \
+	DECLARE_FUNCTION(execKill); \
 	DECLARE_FUNCTION(execGetHealthMax); \
 	DECLARE_FUNCTION(execGetHealth); \
 	DECLARE_FUNCTION(execIsFullHealth); \
