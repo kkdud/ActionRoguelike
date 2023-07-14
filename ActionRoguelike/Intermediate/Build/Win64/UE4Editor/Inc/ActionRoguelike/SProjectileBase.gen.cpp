@@ -41,7 +41,16 @@ void EmptyLinkFunctionForGeneratedCodeSProjectileBase() {}
 		P_GET_OBJECT(AActor,Z_Param_TargetActor);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->DamageActor_Implementation(Z_Param_SourceActor,Z_Param_TargetActor);
+		P_THIS->DamageActor(Z_Param_SourceActor,Z_Param_TargetActor);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ASProjectileBase::execPlayImpactEffect)
+	{
+		P_GET_OBJECT(AActor,Z_Param_SourceActor);
+		P_GET_OBJECT(AActor,Z_Param_TargetActor);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->PlayImpactEffect(Z_Param_SourceActor,Z_Param_TargetActor);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(ASProjectileBase::execOnActorHit)
@@ -55,14 +64,6 @@ void EmptyLinkFunctionForGeneratedCodeSProjectileBase() {}
 		P_NATIVE_BEGIN;
 		P_THIS->OnActorHit(Z_Param_HitComponent,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_NormalImpulse,Z_Param_Out_Hit);
 		P_NATIVE_END;
-	}
-	static FName NAME_ASProjectileBase_DamageActor = FName(TEXT("DamageActor"));
-	void ASProjectileBase::DamageActor(AActor* SourceActor, AActor* TargetActor)
-	{
-		SProjectileBase_eventDamageActor_Parms Parms;
-		Parms.SourceActor=SourceActor;
-		Parms.TargetActor=TargetActor;
-		ProcessEvent(FindFunctionChecked(NAME_ASProjectileBase_DamageActor),&Parms);
 	}
 	static FName NAME_ASProjectileBase_Explode = FName(TEXT("Explode"));
 	void ASProjectileBase::Explode(AActor* SourceActor, AActor* TargetActor)
@@ -79,11 +80,17 @@ void EmptyLinkFunctionForGeneratedCodeSProjectileBase() {}
 			{ "DamageActor", &ASProjectileBase::execDamageActor },
 			{ "Explode", &ASProjectileBase::execExplode },
 			{ "OnActorHit", &ASProjectileBase::execOnActorHit },
+			{ "PlayImpactEffect", &ASProjectileBase::execPlayImpactEffect },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
 	struct Z_Construct_UFunction_ASProjectileBase_DamageActor_Statics
 	{
+		struct SProjectileBase_eventDamageActor_Parms
+		{
+			AActor* SourceActor;
+			AActor* TargetActor;
+		};
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SourceActor;
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TargetActor;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -103,7 +110,7 @@ void EmptyLinkFunctionForGeneratedCodeSProjectileBase() {}
 		{ "ModuleRelativePath", "Public/SProjectileBase.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASProjectileBase_DamageActor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASProjectileBase, nullptr, "DamageActor", nullptr, nullptr, sizeof(SProjectileBase_eventDamageActor_Parms), Z_Construct_UFunction_ASProjectileBase_DamageActor_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASProjectileBase_DamageActor_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C080C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASProjectileBase_DamageActor_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASProjectileBase_DamageActor_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASProjectileBase_DamageActor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASProjectileBase, nullptr, "DamageActor", nullptr, nullptr, sizeof(SProjectileBase_eventDamageActor_Parms), Z_Construct_UFunction_ASProjectileBase_DamageActor_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASProjectileBase_DamageActor_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASProjectileBase_DamageActor_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASProjectileBase_DamageActor_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_ASProjectileBase_DamageActor()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -216,6 +223,42 @@ void EmptyLinkFunctionForGeneratedCodeSProjectileBase() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect_Statics
+	{
+		struct SProjectileBase_eventPlayImpactEffect_Parms
+		{
+			AActor* SourceActor;
+			AActor* TargetActor;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SourceActor;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TargetActor;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect_Statics::NewProp_SourceActor = { "SourceActor", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SProjectileBase_eventPlayImpactEffect_Parms, SourceActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect_Statics::NewProp_TargetActor = { "TargetActor", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SProjectileBase_eventPlayImpactEffect_Parms, TargetActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect_Statics::NewProp_SourceActor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect_Statics::NewProp_TargetActor,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SProjectileBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASProjectileBase, nullptr, "PlayImpactEffect", nullptr, nullptr, sizeof(SProjectileBase_eventPlayImpactEffect_Parms), Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_ASProjectileBase_NoRegister()
 	{
 		return ASProjectileBase::StaticClass();
@@ -256,9 +299,10 @@ void EmptyLinkFunctionForGeneratedCodeSProjectileBase() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ActionRoguelike,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASProjectileBase_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ASProjectileBase_DamageActor, "DamageActor" }, // 4141589763
+		{ &Z_Construct_UFunction_ASProjectileBase_DamageActor, "DamageActor" }, // 329447188
 		{ &Z_Construct_UFunction_ASProjectileBase_Explode, "Explode" }, // 2564388057
 		{ &Z_Construct_UFunction_ASProjectileBase_OnActorHit, "OnActorHit" }, // 4086777282
+		{ &Z_Construct_UFunction_ASProjectileBase_PlayImpactEffect, "PlayImpactEffect" }, // 3208177165
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASProjectileBase_Statics::Class_MetaDataParams[] = {
@@ -338,7 +382,7 @@ void EmptyLinkFunctionForGeneratedCodeSProjectileBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASProjectileBase, 588797798);
+	IMPLEMENT_CLASS(ASProjectileBase, 2357555107);
 	template<> ACTIONROGUELIKE_API UClass* StaticClass<ASProjectileBase>()
 	{
 		return ASProjectileBase::StaticClass();

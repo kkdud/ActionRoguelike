@@ -42,3 +42,5 @@ C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Source\ActionRoguelike\Public
 C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SAttributeComponent.generated.h
 C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SAICharacter.generated.h
 C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Public\EngineUtils.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Source\ActionRoguelike\Public\SCharacter.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SCharacter.generated.h

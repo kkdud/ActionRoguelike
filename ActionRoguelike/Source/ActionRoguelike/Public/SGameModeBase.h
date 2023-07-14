@@ -27,6 +27,9 @@ public:
 	UFUNCTION(Exec)
 	void KillAll();
 
+	virtual void OnActorKilled(AActor* VictimActor, AActor* Killer);
+
+
 protected:
 
 	FTimerHandle TimerHandle_SpawnBots;
@@ -51,7 +54,8 @@ protected:
 
 	virtual void CheckNecessaryParamSettings();
 
-
+	UFUNCTION()
+	void RespawnPlayerElapsed(AController* Controller);
 
 public:
 

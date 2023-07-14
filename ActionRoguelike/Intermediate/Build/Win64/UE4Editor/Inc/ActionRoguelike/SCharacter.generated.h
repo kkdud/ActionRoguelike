@@ -10,6 +10,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
 class USAttributeComponent;
+struct FVector;
 #ifdef ACTIONROGUELIKE_SCharacter_generated_h
 #error "SCharacter.generated.h already included, missing '#pragma once' in SCharacter.h"
 #endif
@@ -19,12 +20,14 @@ class USAttributeComponent;
 #define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnHealthChanged); \
+	DECLARE_FUNCTION(execGetPawnViewLocation); \
 	DECLARE_FUNCTION(execHealthSelf);
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnHealthChanged); \
+	DECLARE_FUNCTION(execGetPawnViewLocation); \
 	DECLARE_FUNCTION(execHealthSelf);
 
 

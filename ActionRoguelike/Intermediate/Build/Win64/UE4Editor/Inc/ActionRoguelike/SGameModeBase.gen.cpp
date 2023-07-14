@@ -19,11 +19,20 @@ void EmptyLinkFunctionForGeneratedCodeSGameModeBase() {}
 	UPackage* Z_Construct_UPackage__Script_ActionRoguelike();
 	AIMODULE_API UClass* Z_Construct_UClass_UEnvQueryInstanceBlueprintWrapper_NoRegister();
 	AIMODULE_API UEnum* Z_Construct_UEnum_AIModule_EEnvQueryStatus();
+	ENGINE_API UClass* Z_Construct_UClass_AController_NoRegister();
 	AIMODULE_API UClass* Z_Construct_UClass_UEnvQuery_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCurveFloat_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(ASGameModeBase::execRespawnPlayerElapsed)
+	{
+		P_GET_OBJECT(AController,Z_Param_Controller);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->RespawnPlayerElapsed(Z_Param_Controller);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ASGameModeBase::execOnQueryCompleted)
 	{
 		P_GET_OBJECT(UEnvQueryInstanceBlueprintWrapper,Z_Param_QueryInstance);
@@ -53,6 +62,7 @@ void EmptyLinkFunctionForGeneratedCodeSGameModeBase() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "KillAll", &ASGameModeBase::execKillAll },
 			{ "OnQueryCompleted", &ASGameModeBase::execOnQueryCompleted },
+			{ "RespawnPlayerElapsed", &ASGameModeBase::execRespawnPlayerElapsed },
 			{ "SpawnBotTimerElapsed", &ASGameModeBase::execSpawnBotTimerElapsed },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -112,6 +122,38 @@ void EmptyLinkFunctionForGeneratedCodeSGameModeBase() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASGameModeBase_OnQueryCompleted_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASGameModeBase_RespawnPlayerElapsed_Statics
+	{
+		struct SGameModeBase_eventRespawnPlayerElapsed_Parms
+		{
+			AController* Controller;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Controller;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ASGameModeBase_RespawnPlayerElapsed_Statics::NewProp_Controller = { "Controller", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SGameModeBase_eventRespawnPlayerElapsed_Parms, Controller), Z_Construct_UClass_AController_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASGameModeBase_RespawnPlayerElapsed_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASGameModeBase_RespawnPlayerElapsed_Statics::NewProp_Controller,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASGameModeBase_RespawnPlayerElapsed_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SGameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASGameModeBase_RespawnPlayerElapsed_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASGameModeBase, nullptr, "RespawnPlayerElapsed", nullptr, nullptr, sizeof(SGameModeBase_eventRespawnPlayerElapsed_Parms), Z_Construct_UFunction_ASGameModeBase_RespawnPlayerElapsed_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASGameModeBase_RespawnPlayerElapsed_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASGameModeBase_RespawnPlayerElapsed_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASGameModeBase_RespawnPlayerElapsed_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASGameModeBase_RespawnPlayerElapsed()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASGameModeBase_RespawnPlayerElapsed_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -175,6 +217,7 @@ void EmptyLinkFunctionForGeneratedCodeSGameModeBase() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASGameModeBase_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ASGameModeBase_KillAll, "KillAll" }, // 450896440
 		{ &Z_Construct_UFunction_ASGameModeBase_OnQueryCompleted, "OnQueryCompleted" }, // 1668524261
+		{ &Z_Construct_UFunction_ASGameModeBase_RespawnPlayerElapsed, "RespawnPlayerElapsed" }, // 2689314238
 		{ &Z_Construct_UFunction_ASGameModeBase_SpawnBotTimerElapsed, "SpawnBotTimerElapsed" }, // 3354423567
 	};
 #if WITH_METADATA
@@ -247,7 +290,7 @@ void EmptyLinkFunctionForGeneratedCodeSGameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASGameModeBase, 2409143489);
+	IMPLEMENT_CLASS(ASGameModeBase, 1727547191);
 	template<> ACTIONROGUELIKE_API UClass* StaticClass<ASGameModeBase>()
 	{
 		return ASGameModeBase::StaticClass();

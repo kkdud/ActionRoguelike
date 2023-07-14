@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AController;
 class UEnvQueryInstanceBlueprintWrapper;
 #ifdef ACTIONROGUELIKE_SGameModeBase_generated_h
 #error "SGameModeBase.generated.h already included, missing '#pragma once' in SGameModeBase.h"
@@ -17,6 +18,7 @@ class UEnvQueryInstanceBlueprintWrapper;
 #define ActionRoguelike_Source_ActionRoguelike_Public_SGameModeBase_h_22_SPARSE_DATA
 #define ActionRoguelike_Source_ActionRoguelike_Public_SGameModeBase_h_22_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execRespawnPlayerElapsed); \
 	DECLARE_FUNCTION(execOnQueryCompleted); \
 	DECLARE_FUNCTION(execSpawnBotTimerElapsed); \
 	DECLARE_FUNCTION(execKillAll);
@@ -24,6 +26,7 @@ class UEnvQueryInstanceBlueprintWrapper;
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SGameModeBase_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execRespawnPlayerElapsed); \
 	DECLARE_FUNCTION(execOnQueryCompleted); \
 	DECLARE_FUNCTION(execSpawnBotTimerElapsed); \
 	DECLARE_FUNCTION(execKillAll);

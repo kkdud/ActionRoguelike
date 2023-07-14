@@ -20,28 +20,23 @@ struct FHitResult;
 #define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_SPARSE_DATA
 #define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_RPC_WRAPPERS \
 	virtual void Explode_Implementation(AActor* SourceActor, AActor* TargetActor); \
-	virtual void DamageActor_Implementation(AActor* SourceActor, AActor* TargetActor); \
  \
 	DECLARE_FUNCTION(execExplode); \
 	DECLARE_FUNCTION(execDamageActor); \
+	DECLARE_FUNCTION(execPlayImpactEffect); \
 	DECLARE_FUNCTION(execOnActorHit);
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void Explode_Implementation(AActor* SourceActor, AActor* TargetActor); \
-	virtual void DamageActor_Implementation(AActor* SourceActor, AActor* TargetActor); \
  \
 	DECLARE_FUNCTION(execExplode); \
 	DECLARE_FUNCTION(execDamageActor); \
+	DECLARE_FUNCTION(execPlayImpactEffect); \
 	DECLARE_FUNCTION(execOnActorHit);
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_EVENT_PARMS \
-	struct SProjectileBase_eventDamageActor_Parms \
-	{ \
-		AActor* SourceActor; \
-		AActor* TargetActor; \
-	}; \
 	struct SProjectileBase_eventExplode_Parms \
 	{ \
 		AActor* SourceActor; \

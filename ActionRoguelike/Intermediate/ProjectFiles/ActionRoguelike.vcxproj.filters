@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ActionRoguelike.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{4A9DD60A-9581-4FD3-AE5B-5A336B32D754}</UniqueIdentifier>
+      <UniqueIdentifier>{8E934F7C-005A-465F-BD86-56146B0EA3F9}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ActionRoguelike.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{595C16FA-2536-4588-A7CD-7423D60F15D5}</UniqueIdentifier>
+      <UniqueIdentifier>{FF1C0AFD-B47B-440C-8F56-61476B9200E8}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\ActionRoguelike">
-      <UniqueIdentifier>{A34CA51D-7B4A-4DDF-95F8-0013036BAD63}</UniqueIdentifier>
+      <UniqueIdentifier>{C71D7D32-90F6-4FA3-81B8-D9B0DF54DD39}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ActionRoguelike\ActionRoguelike.Build.cs">
       <Filter>Source\ActionRoguelike</Filter>
@@ -45,7 +45,7 @@
       <Filter>Source\ActionRoguelike</Filter>
     </ClInclude>
     <Filter Include="Source\ActionRoguelike\Private">
-      <UniqueIdentifier>{3EA93C42-E0AD-4B6B-8B93-5ADE3CC68676}</UniqueIdentifier>
+      <UniqueIdentifier>{8301FE8B-A8C6-407E-8080-B81122310BF3}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\SAttributeComponent.cpp">
       <Filter>Source\ActionRoguelike\Private</Filter>
@@ -60,6 +60,9 @@
       <Filter>Source\ActionRoguelike\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\SGameModeBase.cpp">
+      <Filter>Source\ActionRoguelike\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ActionRoguelike\Private\SGameplayFunctionLibrary.cpp">
       <Filter>Source\ActionRoguelike\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\SGameplayInterface.cpp">
@@ -90,7 +93,7 @@
       <Filter>Source\ActionRoguelike\Private</Filter>
     </ClCompile>
     <Filter Include="Source\ActionRoguelike\Private\AI">
-      <UniqueIdentifier>{0468AF9A-4DC6-43CE-9192-4163C6B9C5E5}</UniqueIdentifier>
+      <UniqueIdentifier>{A561FAF0-6637-4409-BF61-635F5EB0133B}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\AI\SAICharacter.cpp">
       <Filter>Source\ActionRoguelike\Private\AI</Filter>
@@ -111,7 +114,7 @@
       <Filter>Source\ActionRoguelike\Private\AI</Filter>
     </ClCompile>
     <Filter Include="Source\ActionRoguelike\Public">
-      <UniqueIdentifier>{DB640507-CDEC-4464-9BF3-A077A98EF145}</UniqueIdentifier>
+      <UniqueIdentifier>{843A2F8B-DF0C-4B9B-A612-E234AC0A2499}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\SAttributeComponent.h">
       <Filter>Source\ActionRoguelike\Public</Filter>
@@ -126,6 +129,9 @@
       <Filter>Source\ActionRoguelike\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\SGameModeBase.h">
+      <Filter>Source\ActionRoguelike\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ActionRoguelike\Public\SGameplayFunctionLibrary.h">
       <Filter>Source\ActionRoguelike\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\SGameplayInterface.h">
@@ -156,7 +162,7 @@
       <Filter>Source\ActionRoguelike\Public</Filter>
     </ClInclude>
     <Filter Include="Source\ActionRoguelike\Public\AI">
-      <UniqueIdentifier>{78C007A5-3E41-459E-AB16-CF5D7A8FCA51}</UniqueIdentifier>
+      <UniqueIdentifier>{B58EC2E3-0602-4F31-998A-D48D3B2DCF56}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\AI\SAICharacter.h">
       <Filter>Source\ActionRoguelike\Public\AI</Filter>

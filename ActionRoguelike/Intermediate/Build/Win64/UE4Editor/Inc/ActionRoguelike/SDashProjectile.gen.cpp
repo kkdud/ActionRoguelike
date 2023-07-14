@@ -137,7 +137,7 @@ void EmptyLinkFunctionForGeneratedCodeSDashProjectile() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASDashProjectile, 3698168197);
+	IMPLEMENT_CLASS(ASDashProjectile, 3498475870);
 	template<> ACTIONROGUELIKE_API UClass* StaticClass<ASDashProjectile>()
 	{
 		return ASDashProjectile::StaticClass();

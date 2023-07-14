@@ -40,7 +40,17 @@ void ASProjectileBase::OnActorHit(UPrimitiveComponent* HitComponent, AActor* Oth
 
 
 
-void ASProjectileBase::DamageActor_Implementation(AActor* SourceActor, AActor* TargetActor)
+void ASProjectileBase::PlayImpactEffect(AActor* SourceActor, AActor* TargetActor)
+{
+	if (ensure(!IsPendingKill()))
+	{
+		UGameplayStatics::SpawnEmitterAtLocation(this, ImpactVFX, GetActorLocation(), GetActorRotation());
+
+		Destroy();
+	}
+}
+
+void ASProjectileBase::DamageActor(AActor* SourceActor, AActor* TargetActor)
 {
 	if (ensure(!IsPendingKill()))
 	{
@@ -59,12 +69,7 @@ void ASProjectileBase::Explode_Implementation(AActor* SourceActor, AActor* Targe
 {
 	DamageActor(SourceActor, TargetActor);
 
-	if (ensure(!IsPendingKill()))
-	{
-		UGameplayStatics::SpawnEmitterAtLocation(this, ImpactVFX, GetActorLocation(), GetActorRotation());
-
-		Destroy();
-	}
+	PlayImpactEffect(SourceActor, TargetActor);
 }
 
 void ASProjectileBase::PostInitializeComponents()

@@ -3,6 +3,7 @@
 
 #include "SMagicProjectile.h"
 #include "SProjectileBase.h"
+#include "SGameplayFunctionLibrary.h"
 
 // Sets default values
 ASMagicProjectile::ASMagicProjectile()
@@ -13,14 +14,17 @@ ASMagicProjectile::ASMagicProjectile()
 
 void ASMagicProjectile::OnActorHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	Super::OnActorHit(HitComponent, OtherActor, OtherComp, NormalImpulse, Hit);
+	//Super::OnActorHit(HitComponent, OtherActor, OtherComp, NormalImpulse, Hit);
+
+	PlayImpactEffect(GetInstigator(), OtherActor);
+
+	USGameplayFunctionLibrary::ApplyDirectionalDamage(GetInstigator(), OtherActor, DamageAmount, Hit);
 }
 
 
 void ASMagicProjectile::Explode_Implementation(AActor* SourceActor, AActor* TargetActor)
 {
 	Super::Explode_Implementation(SourceActor, TargetActor);
-	UE_LOG(LogTemp, Warning, TEXT("ASMagicProjectile::Explode_Implementation()... On Timestamp: %d"), GetWorld()->TimeSeconds);
 }
 
 void ASMagicProjectile::PostInitializeComponents()

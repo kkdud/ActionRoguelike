@@ -3,13 +3,23 @@
 
 #include "SAttributeComponent.h"
 #include <DrawDebugHelpers.h>
+#include "SGameModeBase.h"
 
+
+TAutoConsoleVariable<float> CVarDamageMultiplier(TEXT("su.DamageMultiplier"), 1.0f, TEXT("Global Damage Modifer for Attribute Componetn."), ECVF_Cheat);
 
 bool USAttributeComponent::ApplyHealthChange(AActor* SourceActor, float Delta)
 {
 	if (!GetOwner()->CanBeDamaged())
 	{
 		return false;
+	}
+
+	if (Delta < 0.0f)
+	{
+		float DamageMultiplier = CVarDamageMultiplier.GetValueOnGameThread();
+
+		Delta *= DamageMultiplier;
 	}
 
 	float OldHealth = Health;
@@ -24,7 +34,17 @@ bool USAttributeComponent::ApplyHealthChange(AActor* SourceActor, float Delta)
 	FVector Location = GetOwner()->GetActorLocation();
 	FString CombinedString = FString::Printf(TEXT("Health: %f"), Health);
 
-	DrawDebugString(GetWorld(), Location, CombinedString, nullptr, FColor::Green, 2.0f, false, 3.0f);
+	//DrawDebugString(GetWorld(), Location, CombinedString, nullptr, FColor::Green, 2.0f, false, 3.0f);
+
+	// Died
+	if (ActualDelta < 0.0f && Health == 0.0f)
+	{
+		ASGameModeBase* GM = Cast<ASGameModeBase>(GetWorld()->GetAuthGameMode());
+		if (ensure(GM))
+		{
+			GM->OnActorKilled(GetOwner(), SourceActor);
+		}
+	}
 
 	return ActualDelta != 0.0f;
 }

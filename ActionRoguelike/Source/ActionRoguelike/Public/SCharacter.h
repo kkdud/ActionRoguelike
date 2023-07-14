@@ -26,6 +26,9 @@ public:
 	UFUNCTION(Exec)
 	void HealthSelf(float Amount = 100);
 
+	UFUNCTION()
+	virtual FVector GetPawnViewLocation() const override;
+
 
 protected:
 

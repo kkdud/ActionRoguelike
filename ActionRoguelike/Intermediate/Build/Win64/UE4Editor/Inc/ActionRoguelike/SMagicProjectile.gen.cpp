@@ -71,7 +71,7 @@ void EmptyLinkFunctionForGeneratedCodeSMagicProjectile() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASMagicProjectile, 1594042992);
+	IMPLEMENT_CLASS(ASMagicProjectile, 413186841);
 	template<> ACTIONROGUELIKE_API UClass* StaticClass<ASMagicProjectile>()
 	{
 		return ASMagicProjectile::StaticClass();
