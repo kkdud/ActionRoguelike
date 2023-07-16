@@ -11,6 +11,7 @@ class UPawnSensingComponent;
 class USAttributeComponent;
 class UUserWidget;
 class USWorldUserWidget;
+class USActionComponent;
 
 UCLASS()
 class ACTIONROGUELIKE_API ASAICharacter : public ACharacter
@@ -21,11 +22,13 @@ public:
 	// Sets default values for this character's properties
 	ASAICharacter();
 
+
 protected:
 
 	virtual void PostInitializeComponents() override;
 
 	virtual void BeginPlay() override;
+
 
 public:	
 	// Called every frame
@@ -50,6 +53,9 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	USAttributeComponent* AttributeComp;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	USActionComponent* ActionComp;
 
 	UFUNCTION()
 	void OnHealthChanged(AActor* InstigatorActor, USAttributeComponent* OwningComp, float NewHealth, float Delta);

@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ActionRoguelike.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{8E934F7C-005A-465F-BD86-56146B0EA3F9}</UniqueIdentifier>
+      <UniqueIdentifier>{A336DE46-87BF-42A7-9654-9825FDB9E2CF}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ActionRoguelike.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{FF1C0AFD-B47B-440C-8F56-61476B9200E8}</UniqueIdentifier>
+      <UniqueIdentifier>{83430205-D879-42D6-B084-70F18CC9E7EE}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\ActionRoguelike">
-      <UniqueIdentifier>{C71D7D32-90F6-4FA3-81B8-D9B0DF54DD39}</UniqueIdentifier>
+      <UniqueIdentifier>{A62A0734-02EE-426B-8E86-0FC5521A23F7}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ActionRoguelike\ActionRoguelike.Build.cs">
       <Filter>Source\ActionRoguelike</Filter>
@@ -45,8 +45,17 @@
       <Filter>Source\ActionRoguelike</Filter>
     </ClInclude>
     <Filter Include="Source\ActionRoguelike\Private">
-      <UniqueIdentifier>{8301FE8B-A8C6-407E-8080-B81122310BF3}</UniqueIdentifier>
+      <UniqueIdentifier>{887ABE36-F55A-4715-85C4-76D72C92F69B}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\ActionRoguelike\Private\SAction.cpp">
+      <Filter>Source\ActionRoguelike\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ActionRoguelike\Private\SActionComponent.cpp">
+      <Filter>Source\ActionRoguelike\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ActionRoguelike\Private\SAction_ProjectileAttack.cpp">
+      <Filter>Source\ActionRoguelike\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\SAttributeComponent.cpp">
       <Filter>Source\ActionRoguelike\Private</Filter>
     </ClCompile>
@@ -93,7 +102,7 @@
       <Filter>Source\ActionRoguelike\Private</Filter>
     </ClCompile>
     <Filter Include="Source\ActionRoguelike\Private\AI">
-      <UniqueIdentifier>{A561FAF0-6637-4409-BF61-635F5EB0133B}</UniqueIdentifier>
+      <UniqueIdentifier>{025816EF-E777-4FF5-B710-97526F64B552}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\AI\SAICharacter.cpp">
       <Filter>Source\ActionRoguelike\Private\AI</Filter>
@@ -114,8 +123,17 @@
       <Filter>Source\ActionRoguelike\Private\AI</Filter>
     </ClCompile>
     <Filter Include="Source\ActionRoguelike\Public">
-      <UniqueIdentifier>{843A2F8B-DF0C-4B9B-A612-E234AC0A2499}</UniqueIdentifier>
+      <UniqueIdentifier>{C5553494-D0A9-4E08-A8EF-1EE2E3DBC6EF}</UniqueIdentifier>
     </Filter>
+    <ClInclude Include="..\..\Source\ActionRoguelike\Public\SAction.h">
+      <Filter>Source\ActionRoguelike\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ActionRoguelike\Public\SActionComponent.h">
+      <Filter>Source\ActionRoguelike\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ActionRoguelike\Public\SAction_ProjectileAttack.h">
+      <Filter>Source\ActionRoguelike\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\SAttributeComponent.h">
       <Filter>Source\ActionRoguelike\Public</Filter>
     </ClInclude>
@@ -162,7 +180,7 @@
       <Filter>Source\ActionRoguelike\Public</Filter>
     </ClInclude>
     <Filter Include="Source\ActionRoguelike\Public\AI">
-      <UniqueIdentifier>{B58EC2E3-0602-4F31-998A-D48D3B2DCF56}</UniqueIdentifier>
+      <UniqueIdentifier>{2A7BFFE9-D2AE-46FA-9A45-4C1613BB20D0}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\AI\SAICharacter.h">
       <Filter>Source\ActionRoguelike\Public\AI</Filter>

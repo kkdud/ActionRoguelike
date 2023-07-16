@@ -10,28 +10,25 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
 class USAttributeComponent;
-struct FVector;
 #ifdef ACTIONROGUELIKE_SCharacter_generated_h
 #error "SCharacter.generated.h already included, missing '#pragma once' in SCharacter.h"
 #endif
 #define ACTIONROGUELIKE_SCharacter_generated_h
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_SPARSE_DATA
-#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_RPC_WRAPPERS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_SPARSE_DATA
+#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnHealthChanged); \
-	DECLARE_FUNCTION(execGetPawnViewLocation); \
 	DECLARE_FUNCTION(execHealthSelf);
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnHealthChanged); \
-	DECLARE_FUNCTION(execGetPawnViewLocation); \
 	DECLARE_FUNCTION(execHealthSelf);
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_INCLASS_NO_PURE_DECLS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASCharacter(); \
 	friend struct Z_Construct_UClass_ASCharacter_Statics; \
@@ -40,7 +37,7 @@ public: \
 	DECLARE_SERIALIZER(ASCharacter)
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_INCLASS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_INCLASS \
 private: \
 	static void StaticRegisterNativesASCharacter(); \
 	friend struct Z_Construct_UClass_ASCharacter_Statics; \
@@ -49,7 +46,7 @@ public: \
 	DECLARE_SERIALIZER(ASCharacter)
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_STANDARD_CONSTRUCTORS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ASCharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ASCharacter) \
@@ -62,7 +59,7 @@ private: \
 public:
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_ENHANCED_CONSTRUCTORS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ASCharacter(ASCharacter&&); \
@@ -73,39 +70,36 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ASCharacter)
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_PRIVATE_PROPERTY_OFFSET \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__TimeToHitParamName() { return STRUCT_OFFSET(ASCharacter, TimeToHitParamName); } \
-	FORCEINLINE static uint32 __PPO__ProjectileClass() { return STRUCT_OFFSET(ASCharacter, ProjectileClass); } \
-	FORCEINLINE static uint32 __PPO__DashProjectileClass() { return STRUCT_OFFSET(ASCharacter, DashProjectileClass); } \
-	FORCEINLINE static uint32 __PPO__BlackholeProjectileClass() { return STRUCT_OFFSET(ASCharacter, BlackholeProjectileClass); } \
-	FORCEINLINE static uint32 __PPO__AttackAnim() { return STRUCT_OFFSET(ASCharacter, AttackAnim); } \
 	FORCEINLINE static uint32 __PPO__SpringArmComp() { return STRUCT_OFFSET(ASCharacter, SpringArmComp); } \
 	FORCEINLINE static uint32 __PPO__CameraComp() { return STRUCT_OFFSET(ASCharacter, CameraComp); } \
 	FORCEINLINE static uint32 __PPO__InteractionComp() { return STRUCT_OFFSET(ASCharacter, InteractionComp); } \
-	FORCEINLINE static uint32 __PPO__AttributeComp() { return STRUCT_OFFSET(ASCharacter, AttributeComp); }
+	FORCEINLINE static uint32 __PPO__AttributeComp() { return STRUCT_OFFSET(ASCharacter, AttributeComp); } \
+	FORCEINLINE static uint32 __PPO__ActionComp() { return STRUCT_OFFSET(ASCharacter, ActionComp); }
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_15_PROLOG
-#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_GENERATED_BODY_LEGACY \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_16_PROLOG
+#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_PRIVATE_PROPERTY_OFFSET \
-	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_SPARSE_DATA \
-	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_RPC_WRAPPERS \
-	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_INCLASS \
-	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_STANDARD_CONSTRUCTORS \
+	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_PRIVATE_PROPERTY_OFFSET \
+	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_SPARSE_DATA \
+	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_RPC_WRAPPERS \
+	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_INCLASS \
+	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_GENERATED_BODY \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_PRIVATE_PROPERTY_OFFSET \
-	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_SPARSE_DATA \
-	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
-	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_INCLASS_NO_PURE_DECLS \
-	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_18_ENHANCED_CONSTRUCTORS \
+	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_PRIVATE_PROPERTY_OFFSET \
+	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_SPARSE_DATA \
+	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_INCLASS_NO_PURE_DECLS \
+	ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

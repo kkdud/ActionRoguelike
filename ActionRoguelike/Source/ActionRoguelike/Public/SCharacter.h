@@ -11,6 +11,7 @@ class UCameraComponent;
 class USInteractionComponent;
 class UAnimMontage;
 class USAttributeComponent;
+class USActionComponent;
 
 UCLASS()
 class ACTIONROGUELIKE_API ASCharacter : public ACharacter
@@ -18,43 +19,35 @@ class ACTIONROGUELIKE_API ASCharacter : public ACharacter
 	GENERATED_BODY()
 
 
+public:
+
+	// Sets default values for this character's properties
+	ASCharacter();
+
+	virtual void PostInitializeComponents() override;
+
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	virtual FVector GetPawnViewLocation() const override;
+
 
 public:
 
-	bool IsAlive() const;
-
 	UFUNCTION(Exec)
 	void HealthSelf(float Amount = 100);
-
-	UFUNCTION()
-	virtual FVector GetPawnViewLocation() const override;
 
 
 protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Effects")
 	FName TimeToHitParamName;
-
-	UPROPERTY(EditAnywhere, Category = "Attack")
-	TSubclassOf<AActor> ProjectileClass;
-
-	UPROPERTY(EditAnywhere, Category = "Attack")
-	TSubclassOf<AActor> DashProjectileClass;
-
-	UPROPERTY(EditAnywhere, Category = "Attack")
-	TSubclassOf<AActor> BlackholeProjectileClass;
-
-	UPROPERTY(EditAnywhere, Category = "Attack")
-	UAnimMontage* AttackAnim;
-
-	FTimerHandle TimeHandle_PrimaryAttack;
-
-	FTimerHandle TimeHandle_Dash;
-
-	FTimerHandle TimeHandle_BlackholeAttack;
-
-
-protected:
 
 	UPROPERTY(VisibleAnywhere)
 	USpringArmComponent* SpringArmComp;
@@ -68,10 +61,20 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	USAttributeComponent* AttributeComp;
 
-	virtual void PostInitializeComponents() override;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	USActionComponent* ActionComp;
 
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+
+	UFUNCTION()
+	void OnHealthChanged(AActor* InstigatorActor, USAttributeComponent* OwningComp, float NewHealth, float Delta);
+
+
+public:
+
+	bool IsAlive() const;
+
+
+protected:
 
 	void MoveForward(float Value);
 
@@ -79,37 +82,16 @@ protected:
 
 	void PrimaryAttack();
 
-	void PrimaryAttack_TimeElapsed();
-
 	void Dash();
 
-	void Dash_TimeElapsed();
-
 	void BlacholeAttack();
-
-	void BlackholeAttack_TimeElapsed();
 
 	void PrimaryInteract();
 
 	void FireToMe();
 
-	void SpawnProjectile(TSubclassOf<AActor> ClassToSpawn);
+	void SprintStart();
 
-	UFUNCTION()
-	void OnHealthChanged(AActor* InstigatorActor, USAttributeComponent* OwningComp, float NewHealth, float Delta);
-
-
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-	// Sets default values for this character's properties
-	ASCharacter();
-
-
+	void SprintStop();
 
 };

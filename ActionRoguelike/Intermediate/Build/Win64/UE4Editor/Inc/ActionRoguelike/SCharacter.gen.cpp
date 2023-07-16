@@ -17,14 +17,12 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 	ACTIONROGUELIKE_API UClass* Z_Construct_UClass_ASCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UPackage* Z_Construct_UPackage__Script_ActionRoguelike();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ACTIONROGUELIKE_API UClass* Z_Construct_UClass_USAttributeComponent_NoRegister();
-	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
-	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ACTIONROGUELIKE_API UClass* Z_Construct_UClass_USInteractionComponent_NoRegister();
+	ACTIONROGUELIKE_API UClass* Z_Construct_UClass_USActionComponent_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(ASCharacter::execOnHealthChanged)
 	{
@@ -35,13 +33,6 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->OnHealthChanged(Z_Param_InstigatorActor,Z_Param_OwningComp,Z_Param_NewHealth,Z_Param_Delta);
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(ASCharacter::execGetPawnViewLocation)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		*(FVector*)Z_Param__Result=P_THIS->GetPawnViewLocation();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(ASCharacter::execHealthSelf)
@@ -56,43 +47,10 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 	{
 		UClass* Class = ASCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "GetPawnViewLocation", &ASCharacter::execGetPawnViewLocation },
 			{ "HealthSelf", &ASCharacter::execHealthSelf },
 			{ "OnHealthChanged", &ASCharacter::execOnHealthChanged },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_ASCharacter_GetPawnViewLocation_Statics
-	{
-		struct SCharacter_eventGetPawnViewLocation_Parms
-		{
-			FVector ReturnValue;
-		};
-		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ASCharacter_GetPawnViewLocation_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SCharacter_eventGetPawnViewLocation_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASCharacter_GetPawnViewLocation_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASCharacter_GetPawnViewLocation_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASCharacter_GetPawnViewLocation_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/SCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASCharacter_GetPawnViewLocation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASCharacter, nullptr, "GetPawnViewLocation", nullptr, nullptr, sizeof(SCharacter_eventGetPawnViewLocation_Parms), Z_Construct_UFunction_ASCharacter_GetPawnViewLocation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASCharacter_GetPawnViewLocation_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40820400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASCharacter_GetPawnViewLocation_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASCharacter_GetPawnViewLocation_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_ASCharacter_GetPawnViewLocation()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASCharacter_GetPawnViewLocation_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ASCharacter_HealthSelf_Statics
 	{
@@ -195,22 +153,6 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 #endif
 		static const UE4CodeGen_Private::FNamePropertyParams NewProp_TimeToHitParamName;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ProjectileClass_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FClassPropertyParams NewProp_ProjectileClass;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DashProjectileClass_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FClassPropertyParams NewProp_DashProjectileClass;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BlackholeProjectileClass_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FClassPropertyParams NewProp_BlackholeProjectileClass;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AttackAnim_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_AttackAnim;
-#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SpringArmComp_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SpringArmComp;
@@ -226,6 +168,10 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AttributeComp_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_AttributeComp;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ActionComp_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ActionComp;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -235,7 +181,6 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ActionRoguelike,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASCharacter_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ASCharacter_GetPawnViewLocation, "GetPawnViewLocation" }, // 1764520449
 		{ &Z_Construct_UFunction_ASCharacter_HealthSelf, "HealthSelf" }, // 3979372237
 		{ &Z_Construct_UFunction_ASCharacter_OnHealthChanged, "OnHealthChanged" }, // 3567913433
 	};
@@ -253,34 +198,6 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FNamePropertyParams Z_Construct_UClass_ASCharacter_Statics::NewProp_TimeToHitParamName = { "TimeToHitParamName", nullptr, (EPropertyFlags)0x0020080000010001, UE4CodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASCharacter, TimeToHitParamName), METADATA_PARAMS(Z_Construct_UClass_ASCharacter_Statics::NewProp_TimeToHitParamName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASCharacter_Statics::NewProp_TimeToHitParamName_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASCharacter_Statics::NewProp_ProjectileClass_MetaData[] = {
-		{ "Category", "Attack" },
-		{ "ModuleRelativePath", "Public/SCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASCharacter_Statics::NewProp_ProjectileClass = { "ProjectileClass", nullptr, (EPropertyFlags)0x0024080000000001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASCharacter, ProjectileClass), Z_Construct_UClass_AActor_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ASCharacter_Statics::NewProp_ProjectileClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASCharacter_Statics::NewProp_ProjectileClass_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASCharacter_Statics::NewProp_DashProjectileClass_MetaData[] = {
-		{ "Category", "Attack" },
-		{ "ModuleRelativePath", "Public/SCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASCharacter_Statics::NewProp_DashProjectileClass = { "DashProjectileClass", nullptr, (EPropertyFlags)0x0024080000000001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASCharacter, DashProjectileClass), Z_Construct_UClass_AActor_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ASCharacter_Statics::NewProp_DashProjectileClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASCharacter_Statics::NewProp_DashProjectileClass_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASCharacter_Statics::NewProp_BlackholeProjectileClass_MetaData[] = {
-		{ "Category", "Attack" },
-		{ "ModuleRelativePath", "Public/SCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASCharacter_Statics::NewProp_BlackholeProjectileClass = { "BlackholeProjectileClass", nullptr, (EPropertyFlags)0x0024080000000001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASCharacter, BlackholeProjectileClass), Z_Construct_UClass_AActor_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ASCharacter_Statics::NewProp_BlackholeProjectileClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASCharacter_Statics::NewProp_BlackholeProjectileClass_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASCharacter_Statics::NewProp_AttackAnim_MetaData[] = {
-		{ "Category", "Attack" },
-		{ "ModuleRelativePath", "Public/SCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASCharacter_Statics::NewProp_AttackAnim = { "AttackAnim", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASCharacter, AttackAnim), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASCharacter_Statics::NewProp_AttackAnim_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASCharacter_Statics::NewProp_AttackAnim_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASCharacter_Statics::NewProp_SpringArmComp_MetaData[] = {
 		{ "Category", "SCharacter" },
@@ -313,16 +230,21 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASCharacter_Statics::NewProp_AttributeComp = { "AttributeComp", nullptr, (EPropertyFlags)0x00200800000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASCharacter, AttributeComp), Z_Construct_UClass_USAttributeComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASCharacter_Statics::NewProp_AttributeComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASCharacter_Statics::NewProp_AttributeComp_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASCharacter_Statics::NewProp_ActionComp_MetaData[] = {
+		{ "Category", "Components" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/SCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASCharacter_Statics::NewProp_ActionComp = { "ActionComp", nullptr, (EPropertyFlags)0x00200800000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASCharacter, ActionComp), Z_Construct_UClass_USActionComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASCharacter_Statics::NewProp_ActionComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASCharacter_Statics::NewProp_ActionComp_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_TimeToHitParamName,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_ProjectileClass,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_DashProjectileClass,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_BlackholeProjectileClass,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_AttackAnim,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_SpringArmComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_CameraComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_InteractionComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_AttributeComp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_ActionComp,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ASCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ASCharacter>::IsAbstract,
@@ -351,7 +273,7 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASCharacter, 1630013796);
+	IMPLEMENT_CLASS(ASCharacter, 4271351230);
 	template<> ACTIONROGUELIKE_API UClass* StaticClass<ASCharacter>()
 	{
 		return ASCharacter::StaticClass();

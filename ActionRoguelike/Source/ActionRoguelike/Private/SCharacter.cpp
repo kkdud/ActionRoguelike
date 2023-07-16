@@ -9,28 +9,35 @@
 #include "SInteractionComponent.h"
 #include "SAttributeComponent.h"
 #include <Components/CapsuleComponent.h>
+#include "SActionComponent.h"
 
 
-bool ASCharacter::IsAlive() const
+// Sets default values
+ASCharacter::ASCharacter()
 {
-	if (!AttributeComp)
-	{
-		return false;
-	}
+	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	PrimaryActorTick.bCanEverTick = true;
 
-	return AttributeComp->IsAlive();
+	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>("SpringArmComp");
+	SpringArmComp->SetupAttachment(RootComponent);
+	SpringArmComp->bUsePawnControlRotation = true;
+
+	CameraComp = CreateDefaultSubobject<UCameraComponent>("CameraComp");
+	CameraComp->SetupAttachment(SpringArmComp);
+
+	InteractionComp = CreateDefaultSubobject<USInteractionComponent>("InteractionComp");
+
+	AttributeComp = CreateDefaultSubobject<USAttributeComponent>("AttributeComp");
+
+	ActionComp = CreateDefaultSubobject<USActionComponent>("ActionComp");
+
+	GetCharacterMovement()->bOrientRotationToMovement = true;
+
+	bUseControllerRotationYaw = false;
+
+	TimeToHitParamName = "TimeToHit";
+
 }
-
-void ASCharacter::HealthSelf(float Amount /* = 100 */)
-{
-	AttributeComp->ApplyHealthChange(this, Amount);
-}
-
-FVector ASCharacter::GetPawnViewLocation() const
-{
-	return CameraComp->GetComponentLocation();
-}
-
 
 void ASCharacter::PostInitializeComponents()
 {
@@ -43,8 +50,75 @@ void ASCharacter::PostInitializeComponents()
 void ASCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+}
+
+
+// Called every frame
+void ASCharacter::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+}
+
+// Called to bind functionality to input
+void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+{
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	PlayerInputComponent->BindAxis("MoveForward", this, &ASCharacter::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &ASCharacter::MoveRight);
+	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
+	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
+
+	PlayerInputComponent->BindAction("PrimaryAttack", IE_Pressed, this, &ASCharacter::PrimaryAttack);
+	PlayerInputComponent->BindAction("PrimaryInteract", IE_Pressed, this, &ASCharacter::PrimaryInteract);
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+
+	PlayerInputComponent->BindAction("FireToMe", IE_Pressed, this, &ASCharacter::FireToMe);
+
+	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &ASCharacter::SprintStart);
+	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &ASCharacter::SprintStop);
 
 }
+
+FVector ASCharacter::GetPawnViewLocation() const
+{
+	return CameraComp->GetComponentLocation();
+}
+
+
+void ASCharacter::HealthSelf(float Amount /* = 100 */)
+{
+	AttributeComp->ApplyHealthChange(this, Amount);
+}
+
+
+void ASCharacter::OnHealthChanged(AActor* InstigatorActor, USAttributeComponent* OwningComp, float NewHealth, float Delta)
+{
+	if (Delta < 0.0f)
+	{
+		// Hit flash
+		GetMesh()->SetScalarParameterValueOnMaterials(TimeToHitParamName, GetWorld()->TimeSeconds);
+
+		if (NewHealth < 0.0f)
+		{
+			//APlayerController* pc = Cast<APlayerController>(GetController());
+			//DisableInput(pc);
+		}
+
+	}
+}
+
+
+bool ASCharacter::IsAlive() const
+{
+	if (!AttributeComp)
+	{
+		return false;
+	}
+
+	return AttributeComp->IsAlive();
+}
+
 
 void ASCharacter::MoveForward(float Value)
 {
@@ -67,40 +141,17 @@ void ASCharacter::MoveRight(float Value)
 
 void ASCharacter::PrimaryAttack()
 {
-	PlayAnimMontage(AttackAnim);
-
-	GetWorldTimerManager().SetTimer(TimeHandle_PrimaryAttack, this, &ASCharacter::PrimaryAttack_TimeElapsed, 0.2f);
-
-}
-
-void ASCharacter::PrimaryAttack_TimeElapsed()
-{
-	SpawnProjectile(ProjectileClass);
+	ActionComp->StartActionByName(this, "PrimaryAttack");
 }
 
 void ASCharacter::Dash()
 {
-	PlayAnimMontage(AttackAnim);
-
-	GetWorldTimerManager().SetTimer(TimeHandle_Dash, this, &ASCharacter::Dash_TimeElapsed, 0.2f);
-}
-
-
-void ASCharacter::Dash_TimeElapsed()
-{
-	SpawnProjectile(DashProjectileClass);
+	ActionComp->StartActionByName(this, "Dash");
 }
 
 void ASCharacter::BlacholeAttack()
 {
-	PlayAnimMontage(AttackAnim);
-
-	GetWorldTimerManager().SetTimer(TimeHandle_BlackholeAttack, this, &ASCharacter::BlackholeAttack_TimeElapsed, 0.2f);
-}
-
-void ASCharacter::BlackholeAttack_TimeElapsed()
-{
-	SpawnProjectile(BlackholeProjectileClass);
+	ActionComp->StartActionByName(this, "BlacholeAttack");
 }
 
 void ASCharacter::PrimaryInteract()
@@ -113,130 +164,25 @@ void ASCharacter::PrimaryInteract()
 
 void ASCharacter::FireToMe()
 {
-	FVector Location = FVector(0.0f, 0.0f, 1400.0f);
-	FRotator Rotator = FRotationMatrix::MakeFromX(GetActorLocation() - Location).Rotator();
+	ActionComp->StartActionByName(this, "FireToMe");
 
-	FTransform SpawnTM = FTransform(Rotator, Location);
+	//FVector Location = FVector(0.0f, 0.0f, 1400.0f);
+	//FRotator Rotator = FRotationMatrix::MakeFromX(GetActorLocation() - Location).Rotator();
 
-	FActorSpawnParameters SpawnParams;
-	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	//FTransform SpawnTM = FTransform(Rotator, Location);
 
-	GetWorld()->SpawnActor<AActor>(ProjectileClass, SpawnTM, SpawnParams);
+	//FActorSpawnParameters SpawnParams;
+	//SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+	//GetWorld()->SpawnActor<AActor>(ProjectileClass, SpawnTM, SpawnParams);
 }
 
-void ASCharacter::SpawnProjectile(TSubclassOf<AActor> ClassToSpawn)
+void ASCharacter::SprintStart()
 {
-	if (ensureAlways(ClassToSpawn))
-	{
-		FVector HandLocation = GetMesh()->GetSocketLocation("Muzzle_01");
-
-		FActorSpawnParameters SpawnParams;
-		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-		SpawnParams.Instigator = this;
-
-		FCollisionShape Shape;
-		Shape.SetSphere(20.0f);
-
-		FCollisionQueryParams Params;
-		Params.AddIgnoredActor(this);
-
-		FCollisionObjectQueryParams ObjParams;
-		ObjParams.AddObjectTypesToQuery(ECC_WorldDynamic);
-		ObjParams.AddObjectTypesToQuery(ECC_WorldStatic);
-		ObjParams.AddObjectTypesToQuery(ECC_Pawn);
-
-		FVector TraceStart = CameraComp->GetComponentLocation();
-
-		FVector TraceEnd = CameraComp->GetComponentLocation() + (GetControlRotation().Vector() * 5000.0f);
-
-		FHitResult Hit;
-
-		if (GetWorld()->SweepSingleByObjectType(Hit, TraceStart, TraceEnd, FQuat::Identity, ObjParams, Shape, Params))
-		{
-			TraceEnd = Hit.ImpactPoint;
-		}
-
-		FRotator ProjRotation = FRotationMatrix::MakeFromX(TraceEnd - TraceStart).Rotator();
-
-		FTransform SpawnTM = FTransform(ProjRotation, HandLocation);
-
-		AActor* NewProjActor = GetWorld()->SpawnActor<AActor>(ClassToSpawn, SpawnTM, SpawnParams);
-		if (NewProjActor)
-		{
-			GetCapsuleComponent()->IgnoreActorWhenMoving(NewProjActor, true);
-		}
-	}
+	ActionComp->StartActionByName(this, "Sprint");
 }
 
-
-void ASCharacter::OnHealthChanged(AActor* InstigatorActor, USAttributeComponent* OwningComp, float NewHealth, float Delta)
+void ASCharacter::SprintStop()
 {
-	if (Delta < 0.0f)
-	{
-		// Hit flash
-		GetMesh()->SetScalarParameterValueOnMaterials(TimeToHitParamName, GetWorld()->TimeSeconds);
-
-		if (NewHealth < 0.0f)
-		{
-			//APlayerController* pc = Cast<APlayerController>(GetController());
-			//DisableInput(pc);
-		}
-
-	}
-}
-
-
-// Called every frame
-void ASCharacter::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-}
-
-// Called to bind functionality to input
-void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-	PlayerInputComponent->BindAxis("MoveForward", this, &ASCharacter::MoveForward);
-	PlayerInputComponent->BindAxis("MoveRight", this, &ASCharacter::MoveRight);
-	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
-	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
-	
-	PlayerInputComponent->BindAction("PrimaryAttack", IE_Pressed, this, &ASCharacter::PrimaryAttack);
-	PlayerInputComponent->BindAction("PrimaryInteract", IE_Pressed, this, &ASCharacter::PrimaryInteract);
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-
-	PlayerInputComponent->BindAction("FireToMe", IE_Pressed, this, &ASCharacter::FireToMe);
-
-
-} 
-
-
-
-
-
-// Sets default values
-ASCharacter::ASCharacter()
-{
-	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-
-	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>("SpringArmComp");
-	SpringArmComp->SetupAttachment(RootComponent);
-	SpringArmComp->bUsePawnControlRotation = true;
-
-	CameraComp = CreateDefaultSubobject<UCameraComponent>("CameraComp");
-	CameraComp->SetupAttachment(SpringArmComp);
-
-	InteractionComp = CreateDefaultSubobject<USInteractionComponent>("InteractionComp");
-
-	AttributeComp = CreateDefaultSubobject<USAttributeComponent>("AttributeComp");
-
-	GetCharacterMovement()->bOrientRotationToMovement = true;
-
-	bUseControllerRotationYaw = false;
-
-	TimeToHitParamName = "TimeToHit";
-
+	ActionComp->StopActionByName(this, "Sprint");
 }

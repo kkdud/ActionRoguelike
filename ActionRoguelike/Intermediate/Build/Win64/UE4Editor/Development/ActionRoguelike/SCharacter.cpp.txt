@@ -37,3 +37,5 @@ C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\Comp
 C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
 C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
 C:\Program Files (x86)\Vper\UE\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CapsuleComponent.generated.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Source\ActionRoguelike\Public\SActionComponent.h
+C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Inc\ActionRoguelike\SActionComponent.generated.h

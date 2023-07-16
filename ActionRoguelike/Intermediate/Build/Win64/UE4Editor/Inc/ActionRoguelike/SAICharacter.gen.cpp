@@ -23,6 +23,7 @@ void EmptyLinkFunctionForGeneratedCodeSAICharacter() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 	AIMODULE_API UClass* Z_Construct_UClass_UPawnSensingComponent_NoRegister();
+	ACTIONROGUELIKE_API UClass* Z_Construct_UClass_USActionComponent_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(ASAICharacter::execIsAlive)
 	{
@@ -249,6 +250,10 @@ void EmptyLinkFunctionForGeneratedCodeSAICharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AttributeComp_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_AttributeComp;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ActionComp_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ActionComp;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -300,11 +305,20 @@ void EmptyLinkFunctionForGeneratedCodeSAICharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASAICharacter_Statics::NewProp_AttributeComp = { "AttributeComp", nullptr, (EPropertyFlags)0x00200800000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASAICharacter, AttributeComp), Z_Construct_UClass_USAttributeComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASAICharacter_Statics::NewProp_AttributeComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASAICharacter_Statics::NewProp_AttributeComp_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASAICharacter_Statics::NewProp_ActionComp_MetaData[] = {
+		{ "Category", "Components" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/AI/SAICharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASAICharacter_Statics::NewProp_ActionComp = { "ActionComp", nullptr, (EPropertyFlags)0x00200800000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASAICharacter, ActionComp), Z_Construct_UClass_USActionComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASAICharacter_Statics::NewProp_ActionComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASAICharacter_Statics::NewProp_ActionComp_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASAICharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASAICharacter_Statics::NewProp_HealthBarWidgetClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASAICharacter_Statics::NewProp_TimeToHitParamName,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASAICharacter_Statics::NewProp_PawnSensComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASAICharacter_Statics::NewProp_AttributeComp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASAICharacter_Statics::NewProp_ActionComp,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ASAICharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ASAICharacter>::IsAbstract,
@@ -333,7 +347,7 @@ void EmptyLinkFunctionForGeneratedCodeSAICharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASAICharacter, 217141830);
+	IMPLEMENT_CLASS(ASAICharacter, 4237162375);
 	template<> ACTIONROGUELIKE_API UClass* StaticClass<ASAICharacter>()
 	{
 		return ASAICharacter::StaticClass();
