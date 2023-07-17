@@ -7,6 +7,7 @@
 #include <GameFramework/ProjectileMovementComponent.h>
 #include <Kismet/GameplayStatics.h>
 #include "SAttributeComponent.h"
+#include "SActionComponent.h"
 
 // Sets default values
 ASProjectileBase::ASProjectileBase()
@@ -70,6 +71,34 @@ void ASProjectileBase::Explode_Implementation(AActor* SourceActor, AActor* Targe
 	DamageActor(SourceActor, TargetActor);
 
 	PlayImpactEffect(SourceActor, TargetActor);
+}
+
+void ASProjectileBase::SetIgnoreCollision(UPrimitiveComponent* CollisionComp, bool bIgnore)
+{
+	if (!CollisionComp)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Parameter CollisionComp is invalid! Please check it."));
+		return;
+	}
+
+	AActor* IgnoreActor = CollisionComp->GetOwner();
+
+	if (ensure(IgnoreActor))
+	{
+		SphereComp->IgnoreActorWhenMoving(IgnoreActor, bIgnore);
+
+		CollisionComp->IgnoreActorWhenMoving(this, bIgnore);
+	}
+}
+
+void ASProjectileBase::SetVelocity(FVector Velocity)
+{
+	MoveComp->Velocity = Velocity;
+}
+
+FVector ASProjectileBase::GetVelocity() const
+{
+	return MoveComp->Velocity;
 }
 
 void ASProjectileBase::PostInitializeComponents()

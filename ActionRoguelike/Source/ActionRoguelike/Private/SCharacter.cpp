@@ -77,6 +77,7 @@ void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &ASCharacter::SprintStart);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &ASCharacter::SprintStop);
+	PlayerInputComponent->BindAction("Parry", IE_Pressed, this, &ASCharacter::Parry);
 
 }
 
@@ -185,4 +186,9 @@ void ASCharacter::SprintStart()
 void ASCharacter::SprintStop()
 {
 	ActionComp->StopActionByName(this, "Sprint");
+}
+
+void ASCharacter::Parry()
+{
+	ActionComp->StartActionByName(this, "Parry");
 }

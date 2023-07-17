@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "SProjectileBase.h"
+#include <GameplayTagContainer.h>
 #include "SMagicProjectile.generated.h"
 
 class USphereComponent;
@@ -20,17 +21,30 @@ public:
 	// Sets default values for this actor's properties
 	ASMagicProjectile();
 
+	virtual void PostInitializeComponents() override;
+
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+
 protected:
 
 	void OnActorHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit) override;
 
 	void Explode_Implementation(AActor* SourceActor, AActor* TargetActor) override;
 
+
 public:
 
-	virtual void PostInitializeComponents() override;
+	UFUNCTION()
+	ASMagicProjectile* CreateBounceBulletBack(APawn* SourcePawn);
 
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+
+
+protected:
+
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	FGameplayTag ParryTag;
+
 
 };

@@ -8,9 +8,9 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class AActor;
-class UPrimitiveComponent;
 struct FVector;
+class UPrimitiveComponent;
+class AActor;
 struct FHitResult;
 #ifdef ACTIONROGUELIKE_SProjectileBase_generated_h
 #error "SProjectileBase.generated.h already included, missing '#pragma once' in SProjectileBase.h"
@@ -21,6 +21,8 @@ struct FHitResult;
 #define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_RPC_WRAPPERS \
 	virtual void Explode_Implementation(AActor* SourceActor, AActor* TargetActor); \
  \
+	DECLARE_FUNCTION(execSetVelocity); \
+	DECLARE_FUNCTION(execSetIgnoreCollision); \
 	DECLARE_FUNCTION(execExplode); \
 	DECLARE_FUNCTION(execDamageActor); \
 	DECLARE_FUNCTION(execPlayImpactEffect); \
@@ -30,6 +32,8 @@ struct FHitResult;
 #define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void Explode_Implementation(AActor* SourceActor, AActor* TargetActor); \
  \
+	DECLARE_FUNCTION(execSetVelocity); \
+	DECLARE_FUNCTION(execSetIgnoreCollision); \
 	DECLARE_FUNCTION(execExplode); \
 	DECLARE_FUNCTION(execDamageActor); \
 	DECLARE_FUNCTION(execPlayImpactEffect); \

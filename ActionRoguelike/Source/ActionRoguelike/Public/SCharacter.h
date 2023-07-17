@@ -94,4 +94,6 @@ protected:
 
 	void SprintStop();
 
+	void Parry();
+
 };

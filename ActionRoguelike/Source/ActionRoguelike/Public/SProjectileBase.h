@@ -19,6 +19,7 @@ public:
 	// Sets default values for this actor's properties
 	ASProjectileBase();
 
+
 protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Damage")
@@ -48,6 +49,14 @@ protected:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void Explode(AActor* SourceActor, AActor* TargetActor);
 
+	UFUNCTION()
+	void SetIgnoreCollision(UPrimitiveComponent* CollisionComp, bool bIgnore);
+
+	UFUNCTION()
+	void SetVelocity(FVector Velocity);
+
+	//UFUNCTION()
+	FVector GetVelocity() const;
 
 public:	
 

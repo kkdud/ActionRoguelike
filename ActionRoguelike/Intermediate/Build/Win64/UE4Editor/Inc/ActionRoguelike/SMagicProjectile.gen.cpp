@@ -17,9 +17,60 @@ void EmptyLinkFunctionForGeneratedCodeSMagicProjectile() {}
 	ACTIONROGUELIKE_API UClass* Z_Construct_UClass_ASMagicProjectile();
 	ACTIONROGUELIKE_API UClass* Z_Construct_UClass_ASProjectileBase();
 	UPackage* Z_Construct_UPackage__Script_ActionRoguelike();
+	ENGINE_API UClass* Z_Construct_UClass_APawn_NoRegister();
+	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
 // End Cross Module References
+	DEFINE_FUNCTION(ASMagicProjectile::execCreateBounceBulletBack)
+	{
+		P_GET_OBJECT(APawn,Z_Param_SourcePawn);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(ASMagicProjectile**)Z_Param__Result=P_THIS->CreateBounceBulletBack(Z_Param_SourcePawn);
+		P_NATIVE_END;
+	}
 	void ASMagicProjectile::StaticRegisterNativesASMagicProjectile()
 	{
+		UClass* Class = ASMagicProjectile::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "CreateBounceBulletBack", &ASMagicProjectile::execCreateBounceBulletBack },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack_Statics
+	{
+		struct SMagicProjectile_eventCreateBounceBulletBack_Parms
+		{
+			APawn* SourcePawn;
+			ASMagicProjectile* ReturnValue;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SourcePawn;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack_Statics::NewProp_SourcePawn = { "SourcePawn", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SMagicProjectile_eventCreateBounceBulletBack_Parms, SourcePawn), Z_Construct_UClass_APawn_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SMagicProjectile_eventCreateBounceBulletBack_Parms, ReturnValue), Z_Construct_UClass_ASMagicProjectile_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack_Statics::NewProp_SourcePawn,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SMagicProjectile.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASMagicProjectile, nullptr, "CreateBounceBulletBack", nullptr, nullptr, sizeof(SMagicProjectile_eventCreateBounceBulletBack_Parms), Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_ASMagicProjectile_NoRegister()
 	{
@@ -28,9 +79,15 @@ void EmptyLinkFunctionForGeneratedCodeSMagicProjectile() {}
 	struct Z_Construct_UClass_ASMagicProjectile_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ParryTag_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ParryTag;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -38,12 +95,25 @@ void EmptyLinkFunctionForGeneratedCodeSMagicProjectile() {}
 		(UObject* (*)())Z_Construct_UClass_ASProjectileBase,
 		(UObject* (*)())Z_Construct_UPackage__Script_ActionRoguelike,
 	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_ASMagicProjectile_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ASMagicProjectile_CreateBounceBulletBack, "CreateBounceBulletBack" }, // 2351112891
+	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASMagicProjectile_Statics::Class_MetaDataParams[] = {
 		{ "IncludePath", "SMagicProjectile.h" },
 		{ "ModuleRelativePath", "Public/SMagicProjectile.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_ParryTag_MetaData[] = {
+		{ "Category", "Damage" },
+		{ "ModuleRelativePath", "Public/SMagicProjectile.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_ParryTag = { "ParryTag", nullptr, (EPropertyFlags)0x0020080000010001, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASMagicProjectile, ParryTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_ParryTag_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_ParryTag_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASMagicProjectile_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_ParryTag,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ASMagicProjectile_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ASMagicProjectile>::IsAbstract,
 	};
@@ -52,12 +122,12 @@ void EmptyLinkFunctionForGeneratedCodeSMagicProjectile() {}
 		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
-		nullptr,
+		FuncInfo,
+		Z_Construct_UClass_ASMagicProjectile_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
+		UE_ARRAY_COUNT(Z_Construct_UClass_ASMagicProjectile_Statics::PropPointers),
 		0,
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_ASMagicProjectile_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_ASMagicProjectile_Statics::Class_MetaDataParams))
@@ -71,7 +141,7 @@ void EmptyLinkFunctionForGeneratedCodeSMagicProjectile() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASMagicProjectile, 413186841);
+	IMPLEMENT_CLASS(ASMagicProjectile, 2733375026);
 	template<> ACTIONROGUELIKE_API UClass* StaticClass<ASMagicProjectile>()
 	{
 		return ASMagicProjectile::StaticClass();

@@ -26,6 +26,13 @@ bool USActionComponent::StartActionByName(AActor* Instigator, FName ActionName)
 	{
 		if (Action && Action->ActionName == ActionName && !Action->IsRunning())
 		{
+			if (!Action->CanStart(Instigator))
+			{
+				FString DebugMsg = FString::Printf(TEXT("Failed to run action: %s"), *ActionName.ToString());
+				GEngine->AddOnScreenDebugMessage(-1, 0.5f, FColor::White, DebugMsg);
+				continue;
+			}
+
 			Action->StartAction(Instigator);
 			return true;
 		}
@@ -38,8 +45,15 @@ bool USActionComponent::StopActionByName(AActor* Instigator, FName ActionName)
 {
 	for (USAction* Action : Actions)
 	{
-		if (Action && Action->ActionName == ActionName && Action->IsRunning())
+		if (Action && Action->ActionName == ActionName)
 		{
+			if (!Action->CanStop(Instigator))
+			{
+				FString DebugMsg = FString::Printf(TEXT("Failed to stop action: %s"), *ActionName.ToString());
+				GEngine->AddOnScreenDebugMessage(-1, 0.5f, FColor::White, DebugMsg);
+				continue;
+			}
+
 			Action->StopAction(Instigator);
 			return true;
 		}
@@ -77,7 +91,5 @@ void USActionComponent::BeginPlay()
 void USActionComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
 }
 

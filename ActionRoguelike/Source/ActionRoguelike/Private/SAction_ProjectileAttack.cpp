@@ -34,6 +34,7 @@ void USAction_ProjectileAttack::StartAction_Implementation(AActor* Instigator)
 
 }
 
+
 void USAction_ProjectileAttack::AttackDelay_Elapsed(ACharacter* Character)
 {
 	if (ensureAlways(ProjectileClass))
