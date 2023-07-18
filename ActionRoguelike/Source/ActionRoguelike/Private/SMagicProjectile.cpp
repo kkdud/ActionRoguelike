@@ -10,6 +10,7 @@
 #include <Components/CapsuleComponent.h>
 #include <Components/SphereComponent.h>
 #include <Particles/ParticleSystemComponent.h>
+#include "SCharacter.h"
 
 // Sets default values
 ASMagicProjectile::ASMagicProjectile()
@@ -46,11 +47,17 @@ void ASMagicProjectile::OnActorHit(UPrimitiveComponent* HitComponent, AActor* Ot
 			return;
 		}
 
-		USActionComponent* SourceActorActionComp = Cast<USActionComponent>(GetInstigator()->GetComponentByClass(USActionComponent::StaticClass()));
-		if (SourceActorActionComp && TargetActorActionComp && BurningEffectClass && SourceActorActionComp->ActiveGameplayTags.HasTag(ViolentTag))
+
+		ASCharacter* SourceCharacter = Cast<ASCharacter>(GetInstigator());
+		if (SourceCharacter)
 		{
-			TargetActorActionComp->AddAction(GetInstigator(), BurningEffectClass, true);
+			USActionComponent* SourceActorActionComp = Cast<USActionComponent>(GetInstigator()->GetComponentByClass(USActionComponent::StaticClass()));
+			if (SourceActorActionComp && TargetActorActionComp && BurningEffectClass && SourceActorActionComp->ActiveGameplayTags.HasTag(ViolentTag))
+			{
+				TargetActorActionComp->AddAction(GetInstigator(), BurningEffectClass, true);
+			}
 		}
+
 	}
 
 	PlayImpactEffect(GetInstigator(), OtherActor);

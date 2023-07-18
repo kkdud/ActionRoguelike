@@ -1,12 +1,3 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\VperData\GitHub\ActionRoguelike).
-  Building ActionRoguelikeEditor...
-  Using Visual Studio 2022 14.36.32535 toolchain (C:\Program Files (x86)\Vper\UE\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 4 actions with 20 processes...
-    [1/4] SInteractionComponent.cpp
-    [2/4] UE4Editor-ActionRoguelike-Win64-DebugGame.lib
-       Creating library C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\DebugGame\ActionRoguelike\UE4Editor-ActionRoguelike-Win64-DebugGame.lib and object C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\DebugGame\ActionRoguelike\UE4Editor-ActionRoguelike-Win64-DebugGame.exp
-    [3/4] UE4Editor-ActionRoguelike-Win64-DebugGame.dll
-       Creating library C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\DebugGame\ActionRoguelike\UE4Editor-ActionRoguelike-Win64-DebugGame.suppressed.lib and object C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\DebugGame\ActionRoguelike\UE4Editor-ActionRoguelike-Win64-DebugGame.suppressed.exp
-    [4/4] ActionRoguelikeEditor-Win64-DebugGame.target
-  Total time in Parallel executor: 2.11 seconds
-  Total execution time: 2.40 seconds
+  Target is up to date
+  Total execution time: 0.24 seconds
