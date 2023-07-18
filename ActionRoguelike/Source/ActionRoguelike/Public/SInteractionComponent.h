@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "SWorldUserWidget.h"
 #include "SInteractionComponent.generated.h"
 
 
@@ -16,16 +17,41 @@ public:
 	// Sets default values for this component's properties
 	USInteractionComponent();
 
+	// Called every frame
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 public:
 	
 	void PrimaryInteract();
+
+
+protected:
+
+	UPROPERTY(EditDefaultsOnly, Category = "Trace")
+	float TraceDistance;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Trace")
+	float TraceRadius;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Trace")
+	TEnumAsByte<ECollisionChannel> CollisionChannel;
+
+	UPROPERTY()
+	AActor* FocusActor;
+
+	UPROPERTY(EditDefaultsOnly, Category = "UI")
+	TSubclassOf<USWorldUserWidget> DefaultWidgetClass;
+
+	UPROPERTY()
+	USWorldUserWidget* DefaultWidgetInstance;
+
+	void FindBestInteractable();
+
 		
 };
