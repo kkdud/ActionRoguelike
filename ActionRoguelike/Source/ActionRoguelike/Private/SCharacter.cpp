@@ -104,13 +104,11 @@ void ASCharacter::OnHealthChanged(AActor* InstigatorActor, USAttributeComponent*
 	{
 		// Hit flash
 		GetMesh()->SetScalarParameterValueOnMaterials(TimeToHitParamName, GetWorld()->TimeSeconds);
+	}
 
-		if (NewHealth < 0.0f)
-		{
-			//APlayerController* pc = Cast<APlayerController>(GetController());
-			//DisableInput(pc);
-		}
-
+	if (NewHealth <= 0.0f && Delta < 0.0f)
+	{
+		SetLifeSpan(2.0f);
 	}
 }
 

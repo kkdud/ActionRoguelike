@@ -111,6 +111,8 @@ void ASGameModeBase::RespawnPlayerElapsed(AController* Controller)
 	{
 		Controller->UnPossess();
 
+
+
 		RestartPlayer(Controller);
 	}
 }

@@ -8,6 +8,7 @@
 #include <Kismet/GameplayStatics.h>
 #include "SAttributeComponent.h"
 #include "SActionComponent.h"
+#include "Sound/SoundCue.h"
 
 // Sets default values
 ASProjectileBase::ASProjectileBase()
@@ -46,6 +47,9 @@ void ASProjectileBase::PlayImpactEffect(AActor* SourceActor, AActor* TargetActor
 	if (ensure(!IsPendingKill()))
 	{
 		UGameplayStatics::SpawnEmitterAtLocation(this, ImpactVFX, GetActorLocation(), GetActorRotation());
+
+		UGameplayStatics::PlaySoundAtLocation(this, ImpactSound, GetActorLocation());
+
 
 		Destroy();
 	}

@@ -17,8 +17,8 @@ struct FHitResult;
 #endif
 #define ACTIONROGUELIKE_SProjectileBase_generated_h
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_SPARSE_DATA
-#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_RPC_WRAPPERS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_SPARSE_DATA
+#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_RPC_WRAPPERS \
 	virtual void Explode_Implementation(AActor* SourceActor, AActor* TargetActor); \
  \
 	DECLARE_FUNCTION(execSetVelocity); \
@@ -29,7 +29,7 @@ struct FHitResult;
 	DECLARE_FUNCTION(execOnActorHit);
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void Explode_Implementation(AActor* SourceActor, AActor* TargetActor); \
  \
 	DECLARE_FUNCTION(execSetVelocity); \
@@ -40,7 +40,7 @@ struct FHitResult;
 	DECLARE_FUNCTION(execOnActorHit);
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_EVENT_PARMS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_EVENT_PARMS \
 	struct SProjectileBase_eventExplode_Parms \
 	{ \
 		AActor* SourceActor; \
@@ -48,8 +48,8 @@ struct FHitResult;
 	};
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_CALLBACK_WRAPPERS
-#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_INCLASS_NO_PURE_DECLS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_CALLBACK_WRAPPERS
+#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASProjectileBase(); \
 	friend struct Z_Construct_UClass_ASProjectileBase_Statics; \
@@ -58,7 +58,7 @@ public: \
 	DECLARE_SERIALIZER(ASProjectileBase)
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_INCLASS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_INCLASS \
 private: \
 	static void StaticRegisterNativesASProjectileBase(); \
 	friend struct Z_Construct_UClass_ASProjectileBase_Statics; \
@@ -67,7 +67,7 @@ public: \
 	DECLARE_SERIALIZER(ASProjectileBase)
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_STANDARD_CONSTRUCTORS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ASProjectileBase(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ASProjectileBase) \
@@ -80,7 +80,7 @@ private: \
 public:
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_ENHANCED_CONSTRUCTORS \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ASProjectileBase(ASProjectileBase&&); \
@@ -91,40 +91,41 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ASProjectileBase)
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_PRIVATE_PROPERTY_OFFSET \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__DamageAmount() { return STRUCT_OFFSET(ASProjectileBase, DamageAmount); } \
 	FORCEINLINE static uint32 __PPO__ImpactVFX() { return STRUCT_OFFSET(ASProjectileBase, ImpactVFX); } \
+	FORCEINLINE static uint32 __PPO__ImpactSound() { return STRUCT_OFFSET(ASProjectileBase, ImpactSound); } \
 	FORCEINLINE static uint32 __PPO__SphereComp() { return STRUCT_OFFSET(ASProjectileBase, SphereComp); } \
 	FORCEINLINE static uint32 __PPO__MoveComp() { return STRUCT_OFFSET(ASProjectileBase, MoveComp); } \
 	FORCEINLINE static uint32 __PPO__EffectComp() { return STRUCT_OFFSET(ASProjectileBase, EffectComp); }
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_13_PROLOG \
-	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_EVENT_PARMS
+#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_14_PROLOG \
+	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_EVENT_PARMS
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_GENERATED_BODY_LEGACY \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_PRIVATE_PROPERTY_OFFSET \
-	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_SPARSE_DATA \
-	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_RPC_WRAPPERS \
-	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_CALLBACK_WRAPPERS \
-	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_INCLASS \
-	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_STANDARD_CONSTRUCTORS \
+	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_PRIVATE_PROPERTY_OFFSET \
+	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_SPARSE_DATA \
+	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_RPC_WRAPPERS \
+	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_CALLBACK_WRAPPERS \
+	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_INCLASS \
+	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_GENERATED_BODY \
+#define ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_PRIVATE_PROPERTY_OFFSET \
-	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_SPARSE_DATA \
-	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_CALLBACK_WRAPPERS \
-	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_INCLASS_NO_PURE_DECLS \
-	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_16_ENHANCED_CONSTRUCTORS \
+	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_PRIVATE_PROPERTY_OFFSET \
+	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_SPARSE_DATA \
+	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_CALLBACK_WRAPPERS \
+	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_INCLASS_NO_PURE_DECLS \
+	ActionRoguelike_Source_ActionRoguelike_Public_SProjectileBase_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
