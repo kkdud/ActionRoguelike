@@ -19,6 +19,8 @@ void EmptyLinkFunctionForGeneratedCodeSMagicProjectile() {}
 	UPackage* Z_Construct_UPackage__Script_ActionRoguelike();
 	ENGINE_API UClass* Z_Construct_UClass_APawn_NoRegister();
 	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	ACTIONROGUELIKE_API UClass* Z_Construct_UClass_USAction_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(ASMagicProjectile::execCreateBounceBulletBack)
 	{
@@ -87,6 +89,14 @@ void EmptyLinkFunctionForGeneratedCodeSMagicProjectile() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ParryTag_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ParryTag;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ViolentTag_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ViolentTag;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BurningEffectClass_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_BurningEffectClass;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -111,8 +121,24 @@ void EmptyLinkFunctionForGeneratedCodeSMagicProjectile() {}
 	};
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_ParryTag = { "ParryTag", nullptr, (EPropertyFlags)0x0020080000010001, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASMagicProjectile, ParryTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_ParryTag_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_ParryTag_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_ViolentTag_MetaData[] = {
+		{ "Category", "Damage" },
+		{ "ModuleRelativePath", "Public/SMagicProjectile.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_ViolentTag = { "ViolentTag", nullptr, (EPropertyFlags)0x0020080000010001, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASMagicProjectile, ViolentTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_ViolentTag_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_ViolentTag_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_BurningEffectClass_MetaData[] = {
+		{ "Category", "Damage" },
+		{ "ModuleRelativePath", "Public/SMagicProjectile.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_BurningEffectClass = { "BurningEffectClass", nullptr, (EPropertyFlags)0x0024080000010001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASMagicProjectile, BurningEffectClass), Z_Construct_UClass_USAction_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_BurningEffectClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_BurningEffectClass_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASMagicProjectile_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_ParryTag,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_ViolentTag,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASMagicProjectile_Statics::NewProp_BurningEffectClass,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ASMagicProjectile_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ASMagicProjectile>::IsAbstract,
@@ -141,7 +167,7 @@ void EmptyLinkFunctionForGeneratedCodeSMagicProjectile() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASMagicProjectile, 2733375026);
+	IMPLEMENT_CLASS(ASMagicProjectile, 1527863448);
 	template<> ACTIONROGUELIKE_API UClass* StaticClass<ASMagicProjectile>()
 	{
 		return ASMagicProjectile::StaticClass();

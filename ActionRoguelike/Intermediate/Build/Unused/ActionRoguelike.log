@@ -1,12 +1,23 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\VperData\GitHub\ActionRoguelike).
+  Parsing headers for ActionRoguelikeEditor
+    Running UnrealHeaderTool "C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\ActionRoguelike.uproject" "C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\ActionRoguelikeEditor\DebugGame\ActionRoguelikeEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\virtu\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+  LogInit: Display: Loading text-based GConfig....
+  Reflection code generated for ActionRoguelikeEditor in 2.3395901 seconds
   Building ActionRoguelikeEditor...
   Using Visual Studio 2022 14.36.32535 toolchain (C:\Program Files (x86)\Vper\UE\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 4 actions with 20 processes...
-    [1/4] SCharacter.cpp
-    [2/4] UE4Editor-ActionRoguelike-Win64-DebugGame.lib
+  Building 11 actions with 20 processes...
+    [1/11] SAction.cpp
+    [2/11] SActionComponent.gen.cpp
+    [3/11] SActionEffect.cpp
+    [4/11] SActionComponent.cpp
+    [5/11] SCharacter.cpp
+    [6/11] SProjectileBase.cpp
+    [7/11] SMagicProjectile.cpp
+    [8/11] SAICharacter.cpp
+    [9/11] UE4Editor-ActionRoguelike-Win64-DebugGame.lib
        Creating library C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\DebugGame\ActionRoguelike\UE4Editor-ActionRoguelike-Win64-DebugGame.lib and object C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\DebugGame\ActionRoguelike\UE4Editor-ActionRoguelike-Win64-DebugGame.exp
-    [3/4] UE4Editor-ActionRoguelike-Win64-DebugGame.dll
+    [10/11] UE4Editor-ActionRoguelike-Win64-DebugGame.dll
        Creating library C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\DebugGame\ActionRoguelike\UE4Editor-ActionRoguelike-Win64-DebugGame.suppressed.lib and object C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\DebugGame\ActionRoguelike\UE4Editor-ActionRoguelike-Win64-DebugGame.suppressed.exp
-    [4/4] ActionRoguelikeEditor-Win64-DebugGame.target
-  Total time in Parallel executor: 1.24 seconds
-  Total execution time: 1.55 seconds
+    [11/11] ActionRoguelikeEditor-Win64-DebugGame.target
+  Total time in Parallel executor: 2.62 seconds
+  Total execution time: 5.28 seconds

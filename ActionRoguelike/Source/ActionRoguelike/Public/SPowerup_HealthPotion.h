@@ -18,11 +18,16 @@ class ACTIONROGUELIKE_API ASPowerup_HealthPotion : public ASPowerupActor
 public:
 	ASPowerup_HealthPotion();
 
-protected:
-
 
 public:
 
 	void Interact_Implementation(APawn* InstigatorPawn) override;
+
+
+
+protected:
+
+	UPROPERTY(EditDefaultsOnly, Category = "HealthPotion")
+	int32 CreditCost;
 
 };

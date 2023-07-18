@@ -58,7 +58,10 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ASPowerup_HealthPotion)
 
 
-#define ActionRoguelike_Source_ActionRoguelike_Public_SPowerup_HealthPotion_h_15_PRIVATE_PROPERTY_OFFSET
+#define ActionRoguelike_Source_ActionRoguelike_Public_SPowerup_HealthPotion_h_15_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__CreditCost() { return STRUCT_OFFSET(ASPowerup_HealthPotion, CreditCost); }
+
+
 #define ActionRoguelike_Source_ActionRoguelike_Public_SPowerup_HealthPotion_h_12_PROLOG
 #define ActionRoguelike_Source_ActionRoguelike_Public_SPowerup_HealthPotion_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

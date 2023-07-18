@@ -3,12 +3,13 @@
 
 #include "SPowerup_HealthPotion.h"
 #include "SAttributeComponent.h"
+#include "SPlayerState.h"
 
 
 
 ASPowerup_HealthPotion::ASPowerup_HealthPotion()
 {
-
+	CreditCost = 10;
 }
 
 
@@ -22,9 +23,19 @@ void ASPowerup_HealthPotion::Interact_Implementation(APawn* InstigatorPawn)
 	USAttributeComponent* AttributeComp = Cast<USAttributeComponent>(InstigatorPawn->GetComponentByClass(USAttributeComponent::StaticClass()));
 	if (ensure(AttributeComp))
 	{
-		if (AttributeComp->ApplyHealthChange(this, AttributeComp->GetHealthMax()))
+		if (ASPlayerState* PS = InstigatorPawn->GetPlayerState<ASPlayerState>())
 		{
-			HideAndCooldownPowerup();
+			if (PS->RemoveCredits(CreditCost))
+			{
+				if (AttributeComp->ApplyHealthChange(this, AttributeComp->GetHealthMax()))
+				{
+					HideAndCooldownPowerup();
+				}
+				else
+				{
+					PS->AddCredits(CreditCost);
+				}
+			}
 		}
 	}
 }

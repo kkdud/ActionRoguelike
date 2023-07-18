@@ -75,7 +75,6 @@ bool USAction::IsRunning()
 	return RunningState;
 }
 
-
 USActionComponent* USAction::GetOwningComponent() const
 {
 	return Cast<USActionComponent>(GetOuter());

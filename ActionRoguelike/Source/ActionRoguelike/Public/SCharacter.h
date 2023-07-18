@@ -43,6 +43,9 @@ public:
 	UFUNCTION(Exec)
 	void HealthSelf(float Amount = 100);
 
+	UFUNCTION()
+	void ApplyDamage(AActor* SourceActor, float DamageAmount);
+
 
 protected:
 

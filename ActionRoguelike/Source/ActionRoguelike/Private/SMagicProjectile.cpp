@@ -36,14 +36,20 @@ void ASMagicProjectile::OnActorHit(UPrimitiveComponent* HitComponent, AActor* Ot
 	{
 		ensure(OtherActor != GetInstigator());
 
-		USActionComponent* ActionComp = Cast<USActionComponent>(OtherActor->GetComponentByClass(USActionComponent::StaticClass()));
-		if (ActionComp && ActionComp->ActiveGameplayTags.HasTag(ParryTag))
+		USActionComponent* TargetActorActionComp = Cast<USActionComponent>(OtherActor->GetComponentByClass(USActionComponent::StaticClass()));
+		if (TargetActorActionComp && TargetActorActionComp->ActiveGameplayTags.HasTag(ParryTag))
 		{
 			ASMagicProjectile* BouncedBullet = CreateBounceBulletBack(Cast<APawn>(OtherActor));
 
 			Destroy();
 
 			return;
+		}
+
+		USActionComponent* SourceActorActionComp = Cast<USActionComponent>(GetInstigator()->GetComponentByClass(USActionComponent::StaticClass()));
+		if (SourceActorActionComp && TargetActorActionComp && BurningEffectClass && SourceActorActionComp->ActiveGameplayTags.HasTag(ViolentTag))
+		{
+			TargetActorActionComp->AddAction(GetInstigator(), BurningEffectClass, true);
 		}
 	}
 

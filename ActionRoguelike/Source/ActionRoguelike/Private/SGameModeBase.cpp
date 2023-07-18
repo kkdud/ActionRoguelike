@@ -7,9 +7,32 @@
 #include <EngineUtils.h>
 #include "SAttributeComponent.h"
 #include "SCharacter.h"
+#include "SPlayerState.h"
 
 
-static TAutoConsoleVariable<bool> CVarSpawnBots(TEXT("su.SpawnBots"), true, TEXT("Enable spawning of bots via timer."), ECVF_Cheat);
+static TAutoConsoleVariable<bool> CVarBotSpawns(TEXT("su.BotSpawns"), true, TEXT("Enable spawning of bots via timer."), ECVF_Cheat);
+
+
+
+ASGameModeBase::ASGameModeBase()
+{
+	BotSpawnTimerInterval = 2.0f;
+	CreditPerKill = 20.0f;
+	DesiredPowerupCount = 10.0f;
+	RequiredPowerupDistance = 30000.0f;
+
+	PlayerStateClass = ASPlayerState::StaticClass();
+}
+
+
+void ASGameModeBase::StartPlay()
+{
+	Super::StartPlay();
+
+	CheckNecessaryParamSettings();
+	SetBotSpawnsTimer();
+
+}
 
 
 void ASGameModeBase::KillAll()
@@ -26,36 +49,22 @@ void ASGameModeBase::KillAll()
 	}
 }
 
-void ASGameModeBase::OnActorKilled(AActor* VictimActor, AActor* Killer)
+
+
+void ASGameModeBase::BotSpawnTimerElapsed()
 {
-	ASCharacter* Player = Cast<ASCharacter>(VictimActor);
-	if (Player)
+	if (!CVarBotSpawns.GetValueOnGameThread())
 	{
-		FTimerHandle TimerHandle_RespawnDelay;
-
-		FTimerDelegate Delegate;
-		Delegate.BindUFunction(this, "RespawnPlayerElapsed", Player->GetController());
-
-		float RespawnDelay = 2.0f;
-		GetWorldTimerManager().SetTimer(TimerHandle_RespawnDelay, Delegate, RespawnDelay, false);
-	}
-}
-
-
-void ASGameModeBase::SpawnBotTimerElapsed()
-{
-	if (!CVarSpawnBots.GetValueOnGameThread())
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Bot spawning disabled via cvr 'CVSpawnBots'."));
+		UE_LOG(LogTemp, Warning, TEXT("Bot spawning disabled via cvr 'CVBotSpawns'."));
 		return;
 	}
 
-	UEnvQueryInstanceBlueprintWrapper* QueryInstance = UEnvQueryManager::RunEQSQuery(this, SpawnBotQuery, this, EEnvQueryRunMode::RandomBest5Pct, nullptr);
+	UEnvQueryInstanceBlueprintWrapper* QueryInstance = UEnvQueryManager::RunEQSQuery(this, BotSpawnQuery, this, EEnvQueryRunMode::RandomBest5Pct, nullptr);
 
-	QueryInstance->GetOnQueryFinishedEvent().AddDynamic(this, &ASGameModeBase::OnQueryCompleted);
+	QueryInstance->GetOnQueryFinishedEvent().AddDynamic(this, &ASGameModeBase::OnBotSpawnQueryCompleted);
 }
 
-void ASGameModeBase::OnQueryCompleted(UEnvQueryInstanceBlueprintWrapper* QueryInstance, EEnvQueryStatus::Type QueryStatus)
+void ASGameModeBase::OnBotSpawnQueryCompleted(UEnvQueryInstanceBlueprintWrapper* QueryInstance, EEnvQueryStatus::Type QueryStatus)
 {
 	if (QueryStatus != EEnvQueryStatus::Success)
 	{
@@ -96,12 +105,6 @@ void ASGameModeBase::OnQueryCompleted(UEnvQueryInstanceBlueprintWrapper* QueryIn
 	}
 }
 
-void ASGameModeBase::CheckNecessaryParamSettings()
-{
-	ensureMsgf(MinionClass, TEXT("Necessary parameter [MinionClass] is missing, otherwise it will crash."));
-	ensureMsgf(SpawnBotQuery, TEXT("Necessary parameter [SpawnBotQuery] is missing, otherwise it will crash."));
-}
-
 void ASGameModeBase::RespawnPlayerElapsed(AController* Controller)
 {
 	if (ensure(Controller))
@@ -114,17 +117,98 @@ void ASGameModeBase::RespawnPlayerElapsed(AController* Controller)
 
 
 
-ASGameModeBase::ASGameModeBase()
+void ASGameModeBase::OnPowerupSpawnQueryCompleted(UEnvQueryInstanceBlueprintWrapper* QueryInstance, EEnvQueryStatus::Type QueryStatus)
 {
-	SpawnBotTimerInterval = 2.0f;
+	if (QueryStatus != EEnvQueryStatus::Success)
+	{
+		UE_LOG(LogTemp, Log, TEXT("Spawn powerup EQS query failed!"));
+		return;
+	}
+
+	TArray<FVector> Locations = QueryInstance->GetResultsAsLocations();
+	TArray<FVector> UsedLocations;
+
+	int32 SpawnCounter = 0;
+
+	while (SpawnCounter < DesiredPowerupCount && Locations.Num() > 0)
+	{
+		int32 RandomLocationIndex = FMath::RandRange(0, Locations.Num() - 1);
+		FVector PickedLocation = Locations[RandomLocationIndex];
+		Locations.RemoveAt(RandomLocationIndex);
+
+		bool bValidLocation = true;
+		for (FVector OtherLocation : UsedLocations)
+		{
+			float DistanceTo = (PickedLocation - OtherLocation).Size();
+			if (DistanceTo < RequiredPowerupDistance)
+			{
+				bValidLocation = false;
+				break;
+			}
+		}
+
+		if (!bValidLocation)
+		{
+			continue;
+		}
+
+		int32 RandomPowerupClassIndex = FMath::RandRange(0, PowerupClasses.Num() - 1);
+		TSubclassOf<ASPowerupActor> PickedPowerupClass = PowerupClasses[RandomPowerupClassIndex];
+
+		GetWorld()->SpawnActor<AActor>(PickedPowerupClass, PickedLocation, FRotator::ZeroRotator);
+
+		UsedLocations.Add(PickedLocation);
+		SpawnCounter++;
+	}
+}
+
+void ASGameModeBase::OnActorKilled(AActor* VictimActor, AActor* Killer)
+{
+	ASCharacter* Player = Cast<ASCharacter>(VictimActor);
+	if (Player)
+	{
+		FTimerHandle TimerHandle_RespawnDelay;
+
+		FTimerDelegate Delegate;
+		Delegate.BindUFunction(this, "RespawnPlayerElapsed", Player->GetController());
+
+		float RespawnDelay = 2.0f;
+		GetWorldTimerManager().SetTimer(TimerHandle_RespawnDelay, Delegate, RespawnDelay, false);
+	}
+
+	APawn* KillerPawn = Cast<APawn>(Killer);
+	if (KillerPawn)
+	{
+		ASPlayerState* PS = KillerPawn->GetPlayerState<ASPlayerState>();
+		if (PS)
+		{
+			PS->AddCredits(CreditPerKill);
+		}
+	}
+
 }
 
 
-void ASGameModeBase::StartPlay()
+void ASGameModeBase::CheckNecessaryParamSettings()
 {
-	Super::StartPlay();
+	ensureMsgf(MinionClass, TEXT("Necessary parameter [MinionClass] is missing, otherwise it will crash."));
+	ensureMsgf(BotSpawnQuery, TEXT("Necessary parameter [BotSpawnQuery] is missing, otherwise it will crash."));
+}
 
-	CheckNecessaryParamSettings();
+void ASGameModeBase::SetBotSpawnsTimer()
+{
+	GetWorldTimerManager().SetTimer(TimerHandle_BotSpawns, this, &ASGameModeBase::BotSpawnTimerElapsed, BotSpawnTimerInterval, true);
+}
 
-	GetWorldTimerManager().SetTimer(TimerHandle_SpawnBots, this, &ASGameModeBase::SpawnBotTimerElapsed, SpawnBotTimerInterval, true);
+void ASGameModeBase::SpawnPowerItems()
+{
+	if (ensureMsgf(PowerupClasses.Num() > 0, TEXT("You need to add at least one powerup class.")))
+	{
+		UEnvQueryInstanceBlueprintWrapper* QueryInstance = UEnvQueryManager::RunEQSQuery(this, PowerupSpawnQuery, this, EEnvQueryRunMode::AllMatching, nullptr);
+		if (ensure(QueryInstance))
+		{
+			QueryInstance->GetOnQueryFinishedEvent().AddDynamic(this, &ASGameModeBase::OnPowerupSpawnQueryCompleted);
+		}
+	}
+
 }

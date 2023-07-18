@@ -19,12 +19,14 @@ class USAttributeComponent;
 #define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnHealthChanged); \
+	DECLARE_FUNCTION(execApplyDamage); \
 	DECLARE_FUNCTION(execHealthSelf);
 
 
 #define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnHealthChanged); \
+	DECLARE_FUNCTION(execApplyDamage); \
 	DECLARE_FUNCTION(execHealthSelf);
 
 

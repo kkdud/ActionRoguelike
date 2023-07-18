@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ActionRoguelike.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{A336DE46-87BF-42A7-9654-9825FDB9E2CF}</UniqueIdentifier>
+      <UniqueIdentifier>{49230BB8-4F27-4C7D-844B-FAFF3DB63BFA}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ActionRoguelike.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{83430205-D879-42D6-B084-70F18CC9E7EE}</UniqueIdentifier>
+      <UniqueIdentifier>{4667C43A-8F44-465B-9533-5682606D95F6}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -23,11 +23,14 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\DefaultGameplayTags.ini">
+      <Filter>Config</Filter>
+    </None>
     <None Include="..\..\Config\DefaultInput.ini">
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\ActionRoguelike">
-      <UniqueIdentifier>{A62A0734-02EE-426B-8E86-0FC5521A23F7}</UniqueIdentifier>
+      <UniqueIdentifier>{16B84EFE-F285-4DE2-BA6A-CF772E5FF38E}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ActionRoguelike\ActionRoguelike.Build.cs">
       <Filter>Source\ActionRoguelike</Filter>
@@ -45,12 +48,15 @@
       <Filter>Source\ActionRoguelike</Filter>
     </ClInclude>
     <Filter Include="Source\ActionRoguelike\Private">
-      <UniqueIdentifier>{887ABE36-F55A-4715-85C4-76D72C92F69B}</UniqueIdentifier>
+      <UniqueIdentifier>{B21837B0-35BE-4678-ACF0-C179F214BA46}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\SAction.cpp">
       <Filter>Source\ActionRoguelike\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\SActionComponent.cpp">
+      <Filter>Source\ActionRoguelike\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ActionRoguelike\Private\SActionEffect.cpp">
       <Filter>Source\ActionRoguelike\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\SAction_ProjectileAttack.cpp">
@@ -86,7 +92,13 @@
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\SMagicProjectile.cpp">
       <Filter>Source\ActionRoguelike\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ActionRoguelike\Private\SPlayerState.cpp">
+      <Filter>Source\ActionRoguelike\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\SPowerupActor.cpp">
+      <Filter>Source\ActionRoguelike\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ActionRoguelike\Private\SPowerup_Credits.cpp">
       <Filter>Source\ActionRoguelike\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\SPowerup_HealthPotion.cpp">
@@ -102,7 +114,7 @@
       <Filter>Source\ActionRoguelike\Private</Filter>
     </ClCompile>
     <Filter Include="Source\ActionRoguelike\Private\AI">
-      <UniqueIdentifier>{025816EF-E777-4FF5-B710-97526F64B552}</UniqueIdentifier>
+      <UniqueIdentifier>{1586AE93-771D-4E7C-A9EC-16EEA16B513B}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\AI\SAICharacter.cpp">
       <Filter>Source\ActionRoguelike\Private\AI</Filter>
@@ -123,12 +135,15 @@
       <Filter>Source\ActionRoguelike\Private\AI</Filter>
     </ClCompile>
     <Filter Include="Source\ActionRoguelike\Public">
-      <UniqueIdentifier>{C5553494-D0A9-4E08-A8EF-1EE2E3DBC6EF}</UniqueIdentifier>
+      <UniqueIdentifier>{8CC5862F-E9A0-45A6-B14C-127B2C2AE2D6}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\SAction.h">
       <Filter>Source\ActionRoguelike\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\SActionComponent.h">
+      <Filter>Source\ActionRoguelike\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ActionRoguelike\Public\SActionEffect.h">
       <Filter>Source\ActionRoguelike\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\SAction_ProjectileAttack.h">
@@ -164,7 +179,13 @@
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\SMagicProjectile.h">
       <Filter>Source\ActionRoguelike\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\ActionRoguelike\Public\SPlayerState.h">
+      <Filter>Source\ActionRoguelike\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\SPowerupActor.h">
+      <Filter>Source\ActionRoguelike\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ActionRoguelike\Public\SPowerup_Credits.h">
       <Filter>Source\ActionRoguelike\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\SPowerup_HealthPotion.h">
@@ -180,7 +201,7 @@
       <Filter>Source\ActionRoguelike\Public</Filter>
     </ClInclude>
     <Filter Include="Source\ActionRoguelike\Public\AI">
-      <UniqueIdentifier>{2A7BFFE9-D2AE-46FA-9A45-4C1613BB20D0}</UniqueIdentifier>
+      <UniqueIdentifier>{602036E8-0873-4EAE-9E00-1B5C16A7845F}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\AI\SAICharacter.h">
       <Filter>Source\ActionRoguelike\Public\AI</Filter>

@@ -31,6 +31,11 @@ void EmptyLinkFunctionForGeneratedCodeSPowerup_HealthPotion() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CreditCost_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_CreditCost;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -45,6 +50,16 @@ void EmptyLinkFunctionForGeneratedCodeSPowerup_HealthPotion() {}
 		{ "ModuleRelativePath", "Public/SPowerup_HealthPotion.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASPowerup_HealthPotion_Statics::NewProp_CreditCost_MetaData[] = {
+		{ "Category", "HealthPotion" },
+		{ "ModuleRelativePath", "Public/SPowerup_HealthPotion.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ASPowerup_HealthPotion_Statics::NewProp_CreditCost = { "CreditCost", nullptr, (EPropertyFlags)0x0020080000010001, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASPowerup_HealthPotion, CreditCost), METADATA_PARAMS(Z_Construct_UClass_ASPowerup_HealthPotion_Statics::NewProp_CreditCost_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASPowerup_HealthPotion_Statics::NewProp_CreditCost_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASPowerup_HealthPotion_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPowerup_HealthPotion_Statics::NewProp_CreditCost,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ASPowerup_HealthPotion_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ASPowerup_HealthPotion>::IsAbstract,
 	};
@@ -54,11 +69,11 @@ void EmptyLinkFunctionForGeneratedCodeSPowerup_HealthPotion() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_ASPowerup_HealthPotion_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_ASPowerup_HealthPotion_Statics::PropPointers),
 		0,
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_ASPowerup_HealthPotion_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_ASPowerup_HealthPotion_Statics::Class_MetaDataParams))
@@ -72,7 +87,7 @@ void EmptyLinkFunctionForGeneratedCodeSPowerup_HealthPotion() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASPowerup_HealthPotion, 1111690957);
+	IMPLEMENT_CLASS(ASPowerup_HealthPotion, 3222904769);
 	template<> ACTIONROGUELIKE_API UClass* StaticClass<ASPowerup_HealthPotion>()
 	{
 		return ASPowerup_HealthPotion::StaticClass();

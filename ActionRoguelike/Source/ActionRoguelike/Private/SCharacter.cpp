@@ -93,6 +93,11 @@ void ASCharacter::HealthSelf(float Amount /* = 100 */)
 }
 
 
+void ASCharacter::ApplyDamage(AActor* SourceActor, float DamageAmount)
+{
+	AttributeComp->ApplyHealthChange(SourceActor, DamageAmount);
+}
+
 void ASCharacter::OnHealthChanged(AActor* InstigatorActor, USAttributeComponent* OwningComp, float NewHealth, float Delta)
 {
 	if (Delta < 0.0f)
