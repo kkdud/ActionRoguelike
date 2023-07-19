@@ -35,6 +35,62 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		P_THIS->OnHealthChanged(Z_Param_InstigatorActor,Z_Param_OwningComp,Z_Param_NewHealth,Z_Param_Delta);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ASCharacter::execParry)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Parry();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ASCharacter::execSprintStop)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SprintStop();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ASCharacter::execSprintStart)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SprintStart();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ASCharacter::execFireToMe)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->FireToMe();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ASCharacter::execPrimaryInteract)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->PrimaryInteract();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ASCharacter::execBlacholeAttack)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->BlacholeAttack();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ASCharacter::execDash)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Dash();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ASCharacter::execPrimaryAttack)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->PrimaryAttack();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ASCharacter::execApplyDamage)
 	{
 		P_GET_OBJECT(AActor,Z_Param_SourceActor);
@@ -57,8 +113,16 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		UClass* Class = ASCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ApplyDamage", &ASCharacter::execApplyDamage },
+			{ "BlacholeAttack", &ASCharacter::execBlacholeAttack },
+			{ "Dash", &ASCharacter::execDash },
+			{ "FireToMe", &ASCharacter::execFireToMe },
 			{ "HealthSelf", &ASCharacter::execHealthSelf },
 			{ "OnHealthChanged", &ASCharacter::execOnHealthChanged },
+			{ "Parry", &ASCharacter::execParry },
+			{ "PrimaryAttack", &ASCharacter::execPrimaryAttack },
+			{ "PrimaryInteract", &ASCharacter::execPrimaryInteract },
+			{ "SprintStart", &ASCharacter::execSprintStart },
+			{ "SprintStop", &ASCharacter::execSprintStop },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -95,6 +159,72 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASCharacter_ApplyDamage_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASCharacter_BlacholeAttack_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASCharacter_BlacholeAttack_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASCharacter_BlacholeAttack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASCharacter, nullptr, "BlacholeAttack", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASCharacter_BlacholeAttack_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASCharacter_BlacholeAttack_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASCharacter_BlacholeAttack()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASCharacter_BlacholeAttack_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASCharacter_Dash_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASCharacter_Dash_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASCharacter_Dash_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASCharacter, nullptr, "Dash", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASCharacter_Dash_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASCharacter_Dash_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASCharacter_Dash()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASCharacter_Dash_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASCharacter_FireToMe_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASCharacter_FireToMe_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASCharacter_FireToMe_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASCharacter, nullptr, "FireToMe", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASCharacter_FireToMe_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASCharacter_FireToMe_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASCharacter_FireToMe()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASCharacter_FireToMe_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -183,6 +313,116 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ASCharacter_Parry_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASCharacter_Parry_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASCharacter_Parry_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASCharacter, nullptr, "Parry", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASCharacter_Parry_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASCharacter_Parry_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASCharacter_Parry()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASCharacter_Parry_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASCharacter_PrimaryAttack_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASCharacter_PrimaryAttack_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASCharacter_PrimaryAttack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASCharacter, nullptr, "PrimaryAttack", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASCharacter_PrimaryAttack_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASCharacter_PrimaryAttack_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASCharacter_PrimaryAttack()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASCharacter_PrimaryAttack_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASCharacter_PrimaryInteract_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASCharacter_PrimaryInteract_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASCharacter_PrimaryInteract_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASCharacter, nullptr, "PrimaryInteract", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASCharacter_PrimaryInteract_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASCharacter_PrimaryInteract_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASCharacter_PrimaryInteract()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASCharacter_PrimaryInteract_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASCharacter_SprintStart_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASCharacter_SprintStart_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASCharacter_SprintStart_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASCharacter, nullptr, "SprintStart", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASCharacter_SprintStart_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASCharacter_SprintStart_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASCharacter_SprintStart()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASCharacter_SprintStart_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASCharacter_SprintStop_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASCharacter_SprintStop_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASCharacter_SprintStop_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASCharacter, nullptr, "SprintStop", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASCharacter_SprintStop_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASCharacter_SprintStop_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASCharacter_SprintStop()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASCharacter_SprintStop_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_ASCharacter_NoRegister()
 	{
 		return ASCharacter::StaticClass();
@@ -228,8 +468,16 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ASCharacter_ApplyDamage, "ApplyDamage" }, // 2650438287
+		{ &Z_Construct_UFunction_ASCharacter_BlacholeAttack, "BlacholeAttack" }, // 1308903657
+		{ &Z_Construct_UFunction_ASCharacter_Dash, "Dash" }, // 1837060025
+		{ &Z_Construct_UFunction_ASCharacter_FireToMe, "FireToMe" }, // 1950014896
 		{ &Z_Construct_UFunction_ASCharacter_HealthSelf, "HealthSelf" }, // 3979372237
 		{ &Z_Construct_UFunction_ASCharacter_OnHealthChanged, "OnHealthChanged" }, // 3567913433
+		{ &Z_Construct_UFunction_ASCharacter_Parry, "Parry" }, // 4058629554
+		{ &Z_Construct_UFunction_ASCharacter_PrimaryAttack, "PrimaryAttack" }, // 1618522180
+		{ &Z_Construct_UFunction_ASCharacter_PrimaryInteract, "PrimaryInteract" }, // 3300646891
+		{ &Z_Construct_UFunction_ASCharacter_SprintStart, "SprintStart" }, // 3466023983
+		{ &Z_Construct_UFunction_ASCharacter_SprintStop, "SprintStop" }, // 3975752242
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASCharacter_Statics::Class_MetaDataParams[] = {
@@ -320,7 +568,7 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASCharacter, 3429969927);
+	IMPLEMENT_CLASS(ASCharacter, 1415846939);
 	template<> ACTIONROGUELIKE_API UClass* StaticClass<ASCharacter>()
 	{
 		return ASCharacter::StaticClass();

@@ -98,50 +98,6 @@ void ASCharacter::ApplyDamage(AActor* SourceActor, float DamageAmount)
 	AttributeComp->ApplyHealthChange(SourceActor, DamageAmount);
 }
 
-void ASCharacter::OnHealthChanged(AActor* InstigatorActor, USAttributeComponent* OwningComp, float NewHealth, float Delta)
-{
-	if (Delta < 0.0f)
-	{
-		// Hit flash
-		GetMesh()->SetScalarParameterValueOnMaterials(TimeToHitParamName, GetWorld()->TimeSeconds);
-	}
-
-	if (NewHealth <= 0.0f && Delta < 0.0f)
-	{
-		SetLifeSpan(2.0f);
-	}
-}
-
-
-bool ASCharacter::IsAlive() const
-{
-	if (!AttributeComp)
-	{
-		return false;
-	}
-
-	return AttributeComp->IsAlive();
-}
-
-
-void ASCharacter::MoveForward(float Value)
-{
-	FRotator ControlRot = GetControlRotation();
-	ControlRot.Pitch = 0.0f;
-	ControlRot.Roll = 0.0f;
-	AddMovementInput(ControlRot.Vector(), Value);
-}
-
-void ASCharacter::MoveRight(float Value)
-{
-	FRotator ControlRot = GetControlRotation();
-	ControlRot.Pitch = 0.0f;
-	ControlRot.Roll = 0.0f;
-
-	FVector RightVector = FRotationMatrix(ControlRot).GetScaledAxis(EAxis::Y);
-
-	AddMovementInput(RightVector, Value);
-}
 
 void ASCharacter::PrimaryAttack()
 {
@@ -194,4 +150,49 @@ void ASCharacter::SprintStop()
 void ASCharacter::Parry()
 {
 	ActionComp->StartActionByName(this, "Parry");
+}
+
+void ASCharacter::OnHealthChanged(AActor* InstigatorActor, USAttributeComponent* OwningComp, float NewHealth, float Delta)
+{
+	if (Delta < 0.0f)
+	{
+		// Hit flash
+		GetMesh()->SetScalarParameterValueOnMaterials(TimeToHitParamName, GetWorld()->TimeSeconds);
+	}
+
+	if (NewHealth <= 0.0f && Delta < 0.0f)
+	{
+		SetLifeSpan(2.0f);
+	}
+}
+
+
+bool ASCharacter::IsAlive() const
+{
+	if (!AttributeComp)
+	{
+		return false;
+	}
+
+	return AttributeComp->IsAlive();
+}
+
+
+void ASCharacter::MoveForward(float Value)
+{
+	FRotator ControlRot = GetControlRotation();
+	ControlRot.Pitch = 0.0f;
+	ControlRot.Roll = 0.0f;
+	AddMovementInput(ControlRot.Vector(), Value);
+}
+
+void ASCharacter::MoveRight(float Value)
+{
+	FRotator ControlRot = GetControlRotation();
+	ControlRot.Pitch = 0.0f;
+	ControlRot.Roll = 0.0f;
+
+	FVector RightVector = FRotationMatrix(ControlRot).GetScaledAxis(EAxis::Y);
+
+	AddMovementInput(RightVector, Value);
 }

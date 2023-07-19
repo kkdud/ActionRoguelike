@@ -46,6 +46,30 @@ public:
 	UFUNCTION()
 	void ApplyDamage(AActor* SourceActor, float DamageAmount);
 
+	UFUNCTION(BlueprintCallable)
+	void PrimaryAttack();
+
+	UFUNCTION(BlueprintCallable)
+	void Dash();
+
+	UFUNCTION(BlueprintCallable)
+	void BlacholeAttack();
+
+	UFUNCTION(BlueprintCallable)
+	void PrimaryInteract();
+
+	UFUNCTION(BlueprintCallable)
+	void FireToMe();
+
+	UFUNCTION(BlueprintCallable)
+	void SprintStart();
+
+	UFUNCTION(BlueprintCallable)
+	void SprintStop();
+
+	UFUNCTION(BlueprintCallable)
+	void Parry();
+
 
 protected:
 
@@ -71,6 +95,7 @@ protected:
 	UFUNCTION()
 	void OnHealthChanged(AActor* InstigatorActor, USAttributeComponent* OwningComp, float NewHealth, float Delta);
 
+	
 
 public:
 
@@ -83,20 +108,6 @@ protected:
 
 	void MoveRight(float Value);
 
-	void PrimaryAttack();
 
-	void Dash();
-
-	void BlacholeAttack();
-
-	void PrimaryInteract();
-
-	void FireToMe();
-
-	void SprintStart();
-
-	void SprintStop();
-
-	void Parry();
 
 };

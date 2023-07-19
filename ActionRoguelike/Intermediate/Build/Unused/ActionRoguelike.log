@@ -1,3 +1,21 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\VperData\GitHub\ActionRoguelike).
-  Target is up to date
-  Total execution time: 0.25 seconds
+  Parsing headers for ActionRoguelikeEditor
+    Running UnrealHeaderTool "C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\ActionRoguelike.uproject" "C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\ActionRoguelikeEditor\Development\ActionRoguelikeEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\virtu\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+  LogInit: Display: Loading text-based GConfig....
+  Reflection code generated for ActionRoguelikeEditor in 2.3332823 seconds
+  Building ActionRoguelikeEditor...
+  Using Visual Studio 2022 14.36.32535 toolchain (C:\Program Files (x86)\Vper\UE\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  Building 9 actions with 20 processes...
+    [1/9] ActionRoguelike.init.gen.cpp
+    [2/9] SCharacter.gen.cpp
+    [3/9] SAction_ProjectileAttack.cpp
+    [4/9] SMagicProjectile.cpp
+    [5/9] SGameModeBase.cpp
+    [6/9] SCharacter.cpp
+    [7/9] UE4Editor-ActionRoguelike.lib
+       Creating library C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Development\ActionRoguelike\UE4Editor-ActionRoguelike.lib and object C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Development\ActionRoguelike\UE4Editor-ActionRoguelike.exp
+    [8/9] UE4Editor-ActionRoguelike.dll
+       Creating library C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Development\ActionRoguelike\UE4Editor-ActionRoguelike.suppressed.lib and object C:\VperData\GitHub\ActionRoguelike\ActionRoguelike\Intermediate\Build\Win64\UE4Editor\Development\ActionRoguelike\UE4Editor-ActionRoguelike.suppressed.exp
+    [9/9] ActionRoguelikeEditor.target
+  Total time in Parallel executor: 2.34 seconds
+  Total execution time: 5.00 seconds

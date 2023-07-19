@@ -19,6 +19,14 @@ class USAttributeComponent;
 #define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnHealthChanged); \
+	DECLARE_FUNCTION(execParry); \
+	DECLARE_FUNCTION(execSprintStop); \
+	DECLARE_FUNCTION(execSprintStart); \
+	DECLARE_FUNCTION(execFireToMe); \
+	DECLARE_FUNCTION(execPrimaryInteract); \
+	DECLARE_FUNCTION(execBlacholeAttack); \
+	DECLARE_FUNCTION(execDash); \
+	DECLARE_FUNCTION(execPrimaryAttack); \
 	DECLARE_FUNCTION(execApplyDamage); \
 	DECLARE_FUNCTION(execHealthSelf);
 
@@ -26,6 +34,14 @@ class USAttributeComponent;
 #define ActionRoguelike_Source_ActionRoguelike_Public_SCharacter_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnHealthChanged); \
+	DECLARE_FUNCTION(execParry); \
+	DECLARE_FUNCTION(execSprintStop); \
+	DECLARE_FUNCTION(execSprintStart); \
+	DECLARE_FUNCTION(execFireToMe); \
+	DECLARE_FUNCTION(execPrimaryInteract); \
+	DECLARE_FUNCTION(execBlacholeAttack); \
+	DECLARE_FUNCTION(execDash); \
+	DECLARE_FUNCTION(execPrimaryAttack); \
 	DECLARE_FUNCTION(execApplyDamage); \
 	DECLARE_FUNCTION(execHealthSelf);
 

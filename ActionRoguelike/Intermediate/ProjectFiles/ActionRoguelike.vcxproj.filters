@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ActionRoguelike.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{7B0BCD1B-C85D-42A8-B9A2-3F192A15BE86}</UniqueIdentifier>
+      <UniqueIdentifier>{C98A79AD-9ACD-4784-B6A9-0DC237DDFA66}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ActionRoguelike.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{B35FD2E9-B0F5-45AB-83B4-7C9262B2ACE7}</UniqueIdentifier>
+      <UniqueIdentifier>{C205F219-90A6-49F4-AE7D-4824621008F9}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\ActionRoguelike">
-      <UniqueIdentifier>{6B6CC73F-DBCB-433E-A363-AA8A07B75A0A}</UniqueIdentifier>
+      <UniqueIdentifier>{8CB10F1E-1CB7-4B6A-B41D-4989FC1D0A51}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ActionRoguelike\ActionRoguelike.Build.cs">
       <Filter>Source\ActionRoguelike</Filter>
@@ -48,7 +48,7 @@
       <Filter>Source\ActionRoguelike</Filter>
     </ClInclude>
     <Filter Include="Source\ActionRoguelike\Private">
-      <UniqueIdentifier>{D1A706F2-7ACB-409A-87C8-A38A657F46B0}</UniqueIdentifier>
+      <UniqueIdentifier>{89FEA4B8-788B-46DF-A3A1-B5931382A771}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\SAction.cpp">
       <Filter>Source\ActionRoguelike\Private</Filter>
@@ -120,7 +120,7 @@
       <Filter>Source\ActionRoguelike\Private</Filter>
     </ClCompile>
     <Filter Include="Source\ActionRoguelike\Private\AI">
-      <UniqueIdentifier>{DB01AF9B-CA2C-4D16-B19B-1B96114B993A}</UniqueIdentifier>
+      <UniqueIdentifier>{BA17CB96-9C3F-4932-8537-72CAE7BE4D8F}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ActionRoguelike\Private\AI\SAICharacter.cpp">
       <Filter>Source\ActionRoguelike\Private\AI</Filter>
@@ -141,7 +141,7 @@
       <Filter>Source\ActionRoguelike\Private\AI</Filter>
     </ClCompile>
     <Filter Include="Source\ActionRoguelike\Public">
-      <UniqueIdentifier>{BFC3C85A-38FF-4D31-BE8E-51ED25CC57FA}</UniqueIdentifier>
+      <UniqueIdentifier>{B0385D87-5342-4DAF-885C-518BBE09D9F3}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\SAction.h">
       <Filter>Source\ActionRoguelike\Public</Filter>
@@ -213,7 +213,7 @@
       <Filter>Source\ActionRoguelike\Public</Filter>
     </ClInclude>
     <Filter Include="Source\ActionRoguelike\Public\AI">
-      <UniqueIdentifier>{17A1BB87-5389-4639-BCEB-649F558E7000}</UniqueIdentifier>
+      <UniqueIdentifier>{0AA50705-8C23-48C5-8E7A-80FACCD348BF}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\ActionRoguelike\Public\AI\SAICharacter.h">
       <Filter>Source\ActionRoguelike\Public\AI</Filter>

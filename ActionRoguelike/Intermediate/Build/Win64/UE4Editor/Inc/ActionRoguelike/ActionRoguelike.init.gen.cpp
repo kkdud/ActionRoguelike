@@ -29,7 +29,7 @@ void EmptyLinkFunctionForGeneratedCodeActionRoguelike_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xCA3185A4,
+				0x7C23B52B,
 				0x3A64633D,
 				METADATA_PARAMS(nullptr, 0)
 			};
