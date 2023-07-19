@@ -8,6 +8,8 @@
 #include "SInteractionComponent.generated.h"
 
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnInteractionChanged, AActor*, FocusActor);
+
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class ACTIONROGUELIKE_API USInteractionComponent : public UActorComponent
 {
@@ -32,6 +34,9 @@ public:
 
 
 protected:
+
+	UPROPERTY(BlueprintAssignable, Category = "UI")
+	FOnInteractionChanged OnInteractionChanged;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Trace")
 	float TraceDistance;

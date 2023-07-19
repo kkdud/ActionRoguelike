@@ -4,6 +4,7 @@
 #include "SInteractionComponent.h"
 #include "SGameplayInterface.h"
 #include <DrawDebugHelpers.h>
+#include "SCharacter.h"
 
 
 static TAutoConsoleVariable<bool> CVarDebugDraw(TEXT("su.DebugDraw"), false, TEXT("Enable DebugDraw."), ECVF_Cheat);
@@ -106,6 +107,7 @@ void USInteractionComponent::FindBestInteractable()
 		if (DefaultWidgetInstance == nullptr && DefaultWidgetClass)
 		{
 			DefaultWidgetInstance = CreateWidget<USWorldUserWidget>(GetWorld(), DefaultWidgetClass);
+
 		}
 
 		if (DefaultWidgetInstance)
@@ -114,6 +116,7 @@ void USInteractionComponent::FindBestInteractable()
 			if (!DefaultWidgetInstance->IsInViewport())
 			{
 				DefaultWidgetInstance->AddToViewport();
+				OnInteractionChanged.Broadcast(FocusActor);
 			}
 		}
 	}
@@ -122,6 +125,7 @@ void USInteractionComponent::FindBestInteractable()
 		if (DefaultWidgetInstance)
 		{
 			DefaultWidgetInstance->RemoveFromParent();
+			OnInteractionChanged.Broadcast(nullptr);
 		}
 	}
 

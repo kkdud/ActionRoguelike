@@ -12,6 +12,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeActionRoguelike_init() {}
 	ACTIONROGUELIKE_API UFunction* Z_Construct_UDelegateFunction_ActionRoguelike_OnHealthChanged__DelegateSignature();
+	ACTIONROGUELIKE_API UFunction* Z_Construct_UDelegateFunction_ActionRoguelike_OnInteractionChanged__DelegateSignature();
 	ACTIONROGUELIKE_API UFunction* Z_Construct_UDelegateFunction_ActionRoguelike_OnPawnChanged__DelegateSignature();
 	ACTIONROGUELIKE_API UFunction* Z_Construct_UDelegateFunction_ActionRoguelike_OnCreditsChanged__DelegateSignature();
 	UPackage* Z_Construct_UPackage__Script_ActionRoguelike()
@@ -21,6 +22,7 @@ void EmptyLinkFunctionForGeneratedCodeActionRoguelike_init() {}
 		{
 			static UObject* (*const SingletonFuncArray[])() = {
 				(UObject* (*)())Z_Construct_UDelegateFunction_ActionRoguelike_OnHealthChanged__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_ActionRoguelike_OnInteractionChanged__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_ActionRoguelike_OnPawnChanged__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_ActionRoguelike_OnCreditsChanged__DelegateSignature,
 			};
@@ -29,8 +31,8 @@ void EmptyLinkFunctionForGeneratedCodeActionRoguelike_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x7C23B52B,
-				0x3A64633D,
+				0x74B69A81,
+				0x8467A5F3,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

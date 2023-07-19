@@ -31,7 +31,7 @@ void ASGameModeBase::StartPlay()
 
 	CheckNecessaryParamSettings();
 	SetBotSpawnsTimer();
-
+	SpawnPowerItems();
 }
 
 
